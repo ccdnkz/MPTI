@@ -25,6 +25,32 @@ if(!isset($_SESSION['username'])){
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
   <body>
 	
 	<nav class="navbar navbar-inverse navbar-static-top">
@@ -94,29 +120,46 @@ if(!isset($_SESSION['username'])){
 </nav>
   
   
-      <div class="container">
-		<div class="row">
-			<div class="col-md-3">
-			
-			<div class="list-group">
-			  <a href="#" class="list-group-item">Input</a>
-			  <?php
-				if($_SESSION['type']=='Administrator'){
-			  ?>
-			  <a href="#" class="list-group-item">Delete</a>
-			  <?php
-			  }
-			  else{
-			  ?>
-			  <a href="#" class="list-group-item">Update</a>
-			  <?php
-			  }
-			  ?>
-			  <a href="../logout.php" class="list-group-item">Logout</a>
-			</div>
-			
-			</div>
-			<div class="col-md-9">
+    <div class="container-fluid">
+		  <div class="row">
+        <div class="col-sm-3 sidenav">
+            <h4>Menu</h4>
+            <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#section1">Input</a></li>
+              <?php
+                if($_SESSION['type']=='Administrator'){
+                ?>
+                <li><a href="#">Delete</a></li>
+                <?php
+                }
+                else{
+                ?>
+                <li><a href="#">Update</a></li>
+                <?php
+                }
+                ?>
+              <li><a href="../logout.php">Logout</a></li>
+            </ul><br>
+        </div>
+			    <!--<div class="col-sm-3">
+						 <div class="list-group">
+        			  <a href="#" class="list-group-item">Input</a>
+        			  <?php
+        				if($_SESSION['type']=='Administrator'){
+        			  ?>
+        			  <a href="#" class="list-group-item">Deletez</a>
+        			  <?php
+        			  }
+        			  else{
+        			  ?>
+        			  <a href="#" class="list-group-item">Update</a>
+        			  <?php
+        			  }
+        			  ?>
+        			  <a href="../logout.php" class="list-group-item">Logout</a>
+			        </div>
+			    </div>!-->
+			<div class="col-sm-9">
 			
 			<div class="jumbotron">
 			  <h1>Hello, <?php echo $_SESSION['type'] ?></h1>
@@ -128,6 +171,9 @@ if(!isset($_SESSION['username'])){
 		</div>
 	  </div>
 
+    <footer class="container-fluid">
+      <p>Footer Text</p>
+    </footer>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->

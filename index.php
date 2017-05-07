@@ -17,7 +17,6 @@ if(!isset($_SESSION['username'])){
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -25,6 +24,32 @@ if(!isset($_SESSION['username'])){
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
+  <style>
+    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
+    .row.content {height: 1500px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      background-color: #f1f1f1;
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;} 
+    }
+  </style>
   <body>
 	
 	<nav class="navbar navbar-inverse navbar-static-top">
@@ -104,9 +129,9 @@ if(!isset($_SESSION['username'])){
 </nav>
   
   
-      <div class="container">
+      <div class="container-fluid">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-sm-3">
 			
 			<div class="list-group">
 			  <a href="#" class="list-group-item">Article</a>
@@ -121,7 +146,7 @@ if(!isset($_SESSION['username'])){
 			  }
 			  else{
 			  ?>
-			  <a href="#" class="list-group-item">Profile</a>
+			  <a href="#" class="list-group-item">Profileee</a>
 			  <?php
 			  }
 			  ?>
@@ -129,7 +154,7 @@ if(!isset($_SESSION['username'])){
 			</div>
 			
 			</div>
-			<div class="col-md-9">
+			<div class="col-sm-9">
 			
 			<div class="jumbotron">
 			  <h1>Hello, <?php echo $_SESSION['type'] ?></h1>
@@ -140,6 +165,10 @@ if(!isset($_SESSION['username'])){
 			</div>
 		</div>
 	  </div>
+
+    <footer class="container-fluid">
+      <p>Footer Text</p>
+    </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

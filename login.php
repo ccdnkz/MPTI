@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/personal.css" rel="stylesheet">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -17,12 +18,19 @@
     <![endif]-->
   </head>
   <body>
-    <p><br/><br/><br/></p>
+    <div class="jumbotron">
+    	<h1 style="text-align:center;color: white;">
+    		Payroll System
+    	</h1>
+    </div>
 	<div class="container">
 		<div class="row">
 			<div class"col-md-4"></div>
 			<div class"col-md-4">
-				<div class="panel panel-default">
+				<div class="panel panel-primary loginbox">
+					<div class="panel-heading pnle">
+						<label class="pnlhdr">Welcome!</label>
+					</div>
 					<div class="panel-body">
 					<?php
 					include "config.php";
@@ -67,14 +75,14 @@
 					?>
 						<form method="post">
 							<div class="form-group">
-								<label>Username</label>
+								<h4>Username</h4>
 								<input type="text" class="form-control" name="username" />
 							</div>
 							<div class="form-group">
-								<label>Password</label>
+								<h4>Password</h4>
 								<input type="password" class="form-control" name="password" />
 							</div>
-							<input type="submit" value="Login" class="btn btn-primary" />
+							<input type="submit" value="Login" class="btn btn-info loginbtn" />
 						</form>
 					</div>
 				</div>
