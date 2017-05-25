@@ -140,57 +140,59 @@ if(!isset($_SESSION['username'])){
             </tr>
             </table>
             <br />
-            <div class="alert alert-success alert-dismissable">
-              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             Untuk Hitung Lembur Karyawan Silahkan Klik Nama Karyawan..
-			</div>
 		</div>
 		
 		<div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
+                <h3 class="panel-title"><i class="fa fa-user"></i> Tambah Data Karyawan </h3>
               </div>
               <div class="panel-body">
                  <div class="table-responsive">
-                    <?php
-                    $tampil=mysql_query("select * from karyawan order by id_kar desc");
-                    ?>
-                  <table class="table table-bordered table-hover table-striped tablesorter">
                   
-                      <tr>
-                        <th>NIK<i class="fa fa-sort"></i></th>
-                        <th>Nama<i class="fa fa-sort"></i></th>
-                        <th>Alamat <i class="fa fa-sort"></i></th>
-                        <th>No Rek <i class="fa fa-sort"></i></th>
-                        <th>Gaji <i class="fa fa-sort"></i></th>
-                        <th>Golongan <i class="fa fa-sort"></i></th>
-						<th>Jabatan <i class="fa fa-sort"></i></th>
-                        <th>Status <i class="fa fa-sort"></i></th>
-                      </tr>
-                     <?php
-					 while($data=mysql_fetch_array($tampil))
-                    { ?>
-                    <tr>
-                    <td><?php echo $data['nik']; ?></td>
-                    <td><a href="gaji.php?hal=edit&kd=<?php echo $data['id_kar'];?>"><i class="fa fa-user"></i> <?php echo $data['nama_kar']; ?></a></td>
-                    <td><?php echo $data['alamat_kar']; ?></td>
-                    <td><?php echo $data['no_rek']; ?></td>
-                    <td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
-					<td><?php echo $data['gol_kar']; ?></td>
-                    <td><?php echo $data['jabatan'];?></td>
-					<td><?php echo $data['status'];?></td>
-					</tr>
-                 <?php   
-              }
-              ?>
-                   </tbody>
-                   </table>
+    <form action="tambah.php" method="post">
+    <table class="table table-condensed">
+      <tr>
+        <td><label for="nik">Nomor Induk Karyawan</label></td>
+        <td><input name="nik" type="text" class="form-control" id="nik" placeholder="Nomor Induk Karyawan" required/></td>
+      </tr>
+      <tr>
+        <td><label for="nama_kar">Nama Karyawan</label></td>
+        <td><input name="nama_kar" type="text" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
+      </tr>
+      <tr>
+        <td><label for="alamat_kar">Alamat Karyawan</label></td>
+        <td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
+      </tr>
+	  <tr>
+        <td><label for="no_ktp">Nomor KTP</label></td>
+        <td><input name="no_ktp" type="text" class="form-control" id="no_ktp" placeholder="Nomor KTP" required/></td>
+      </tr>
+      <tr>
+        <td><label for="no_rek">Nomor Rekening</label></td>
+        <td><input name="no_rek" type="text" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
+      </tr>
+	  <tr>
+        <td><label for="gol_kar">Golongan</label></td>
+        <td><input name="gol_kar" type="text" class="form-control" id="gol_kar" placeholder="Golongan" required/></td>
+      </tr>
+      <tr>
+        <td><label for="gaji_kar">Gaji Karyawan</label></td>
+        <td><input name="gaji_kar" type="text" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Insert"  class="btn btn-sm btn-primary"/>&nbsp;<a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>
+        </tr>
+    </table>
+    </form>
                    </div>
               </div> 
             </div>
           </div>
-        </div>
+        </div><!-- /.row --> 
+      </div><!-- /#page-wrapper -->
+
+    </div><!-- /#wrapper -->
 			
 			</div>
 		</div>
