@@ -85,13 +85,13 @@ if(!isset($_SESSION['username'])){
 		<nav class="navbar navbar-inverse navbar-static-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-				<span class="sr-only">Toggle navigation</span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="index.php">Logo</a>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.php">Logo</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -109,79 +109,84 @@ if(!isset($_SESSION['username'])){
 						</ul>
 						</li>
 					</ul>
-				</div><!-- /.navbar-collapse -->
+				</div><!-- navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
 
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-sm-3 sidenav">
-					<h4 align="center">Menu</h4>
-					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="index.php">Data Karyawan</a></li>
-						<li><a href="insert.php">Insert Data Karyawan</a></li>
-						<li><a href="update.php">Update Data Karyawan</a></li>
-						<li><a href="datagaji.php">Data Gaji Karyawan</a></li>
-						<li><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
-						<li><a href="../logout.php">Logout</a></li>
-					</ul><br>
+				<h4 align="center">Menu</h4>
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active"><a href="index.php">Data Karyawan</a></li>
+					<li><a href="insert.php">Insert Data Karyawan</a></li>
+					<li><a href="update.php">Update Data Karyawan</a></li>
+					<li><a href="datagaji.php">Data Gaji Karyawan</a></li>
+					<li><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
+					<li><a href="../logout.php">Logout</a></li>
+				</ul>
+				<br>
 				</div>
 				
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-lg-12">
 							<table width="900">
-							<tr>
-							<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
-							<td align="left" width="30"> - </td>
-							<td align="left" width="620"> <h4><div id="output" class="jam" ></div></h4></td>
-							</tr>
+								<tr>
+									<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
+									<td align="left" width="30"> - </td>
+									<td align="left" width="620"> <h4><div id="output" class="jam" ></div></h4></td>
+								</tr>
 							</table>
 							<br />
-							<div class="alert alert-success alert-dismissable">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								Untuk Melakukan Transfer Gaji Karyawan, Silahkan Klik Nama Karyawan di bawah.
-							</div>
 						</div>
 		
 						<div class="col-lg-12">
 							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
+									<h3 class="panel-title"><i class="fa fa-user"></i> Data Penggajian Karyawan </h3> 
 								</div>
 								<div class="panel-body">
 									<div class="table-responsive">
 										<?php
-										$tampil=mysql_query("select * from karyawan order by id_kar desc");
-										?>
+										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, 
+										gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
+										$total=mysql_num_rows($tampil); ?>
 										<table class="table table-bordered table-hover table-striped tablesorter">
+								  
 										<tr>
-											<th>NIK<i class="fa fa-sort"></i></th>
+											<th>Kode<i class="fa fa-sort"></i></th>
 											<th>Nama<i class="fa fa-sort"></i></th>
-											<th>Alamat <i class="fa fa-sort"></i></th>
 											<th>No Rek <i class="fa fa-sort"></i></th>
-											<th>Gaji <i class="fa fa-sort"></i></th>
-											<th>Golongan <i class="fa fa-sort"></i></th>
-											<th>Jabatan <i class="fa fa-sort"></i></th>
-											<th>Status <i class="fa fa-sort"></i></th>
+											<th>Kode Gaji <i class="fa fa-sort"></i></th>
+											<th>Gaji Utama <i class="fa fa-sort"></i></th>
+											<th>Uang_lembur <i class="fa fa-sort"></i></th>
+											<th>Total Gaji <i class="fa fa-sort"></i></th>
+											<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
+											<th>Waktu Transfer <i class="fa fa-sort"></i></th>
+										</tr>
+										<?php while($data=mysql_fetch_array($tampil))
+										{
+										?>
+										<tr>
+											<td><?php echo $data['nik'];?></td>
+											<td><?php echo $data['nama_kar']; ?></a></td>
+											<td><?php echo $data['no_rek']; ?></td>
+											<td><?php echo $data['kode_gaji']; ?></td>
+											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
+											<td>Rp.<?php echo number_format($data['uang_lembur'],2,",",".");?></td>
+											<td>Rp.<?php echo number_format($data['total_gaji'],2,",",".");?></td>
+											<td><?php echo $data['tgl_transfer'];?></td>
+											<td><?php echo $data['waktu_transfer']; ?></td>
 										</tr>
 										<?php
-										while($data=mysql_fetch_array($tampil))
-										{ ?>
-										<tr>
-											<td><?php echo $data['nik']; ?></td>
-											<td><a href="gaji.php?hal=transfer&kd=<?php echo $data['id_kar'];?>"><i class="fa fa-user"></i> <?php echo $data['nama_kar']; ?></a></td>
-											<td><?php echo $data['alamat_kar']; ?></td>
-											<td><?php echo $data['no_rek']; ?></td>
-											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
-											<td><?php echo $data['gol_kar']; ?></td>
-											<td><?php echo $data['jabatan'];?></td>
-											<td><?php echo $data['status'];?></td>
-										</tr>
-										<?php   
 										}
 										?>
 										</table>
+									</div>
+									<div class="text-right">
+										<a href="printdatagaji.php" target="_blank"><button type="submit" class="btn btn-info" name="submit">Klik disini untuk mencetak data penggajian karyawan</button>
+										</a>
 									</div>
 								</div> 
 							</div>

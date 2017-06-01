@@ -140,7 +140,7 @@ if(!isset($_SESSION['username'])){
 							<br />
 							<div class="alert alert-success alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								Untuk Melakukan Transfer Gaji Karyawan, Silahkan Klik Nama Karyawan di bawah.
+								Untuk mencetak slip gaji karyawan, silahkan klik tombol print dibawah.
 							</div>
 						</div>
 		
@@ -152,36 +152,51 @@ if(!isset($_SESSION['username'])){
 								<div class="panel-body">
 									<div class="table-responsive">
 										<?php
-										$tampil=mysql_query("select * from karyawan order by id_kar desc");
+										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
 										?>
 										<table class="table table-bordered table-hover table-striped tablesorter">
 										<tr>
-											<th>NIK<i class="fa fa-sort"></i></th>
+											<th>Kode<i class="fa fa-sort"></i></th>
 											<th>Nama<i class="fa fa-sort"></i></th>
-											<th>Alamat <i class="fa fa-sort"></i></th>
 											<th>No Rek <i class="fa fa-sort"></i></th>
-											<th>Gaji <i class="fa fa-sort"></i></th>
-											<th>Golongan <i class="fa fa-sort"></i></th>
-											<th>Jabatan <i class="fa fa-sort"></i></th>
-											<th>Status <i class="fa fa-sort"></i></th>
+											<th>Kode Gaji <i class="fa fa-sort"></i></th>
+											<th>Gaji Utama <i class="fa fa-sort"></i></th>
+											<th>Uang Lembur <i class="fa fa-sort"></i></th>
+											<th>Take Home Pay <i class="fa fa-sort"></i></th>
+											<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
+											<th>Waktu Transfer <i class="fa fa-sort"></i></th>
 										</tr>
 										<?php
 										while($data=mysql_fetch_array($tampil))
 										{ ?>
 										<tr>
-											<td><?php echo $data['nik']; ?></td>
-											<td><a href="gaji.php?hal=transfer&kd=<?php echo $data['id_kar'];?>"><i class="fa fa-user"></i> <?php echo $data['nama_kar']; ?></a></td>
-											<td><?php echo $data['alamat_kar']; ?></td>
+											<td><?php echo $data['nik'];?></td>
+											<td><?php echo $data['nama_kar']; ?></a></td>
 											<td><?php echo $data['no_rek']; ?></td>
+											<td><?php echo $data['kode_gaji']; ?></td>
 											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
-											<td><?php echo $data['gol_kar']; ?></td>
-											<td><?php echo $data['jabatan'];?></td>
-											<td><?php echo $data['status'];?></td>
+											<td>Rp.<?php echo number_format($data['uang_lembur'],2,",",".");?></td>
+											<td>Rp.<?php echo number_format($data['total_gaji'],2,",",".");?></td>
+											<td><?php echo $data['tgl_transfer'];?></td>
+											<td><?php echo $data['waktu_transfer']; ?></td>
 										</tr>
 										<?php   
 										}
 										?>
 										</table>
+									</div>
+									<div class="text-right">
+										<?php
+										$kirim=mysql_query("SELECT * FROM karyawan, gaji");
+										?>
+										<?php
+										while($data=mysql_fetch_array($kirim))
+										{ ?>
+										<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
+										</a>
+										<?php   
+										}
+										?>
 									</div>
 								</div> 
 							</div>
