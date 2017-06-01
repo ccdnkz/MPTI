@@ -70,7 +70,7 @@ if(!isset($_SESSION['username'])){
 		  background-color: #555;
 		  color: white;
 		  padding: 15px;
-		  position:absolute;
+		  position:fixed;
 		  bottom:0px;
 		  width: 100%;
 		}

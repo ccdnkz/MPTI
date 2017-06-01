@@ -70,8 +70,8 @@ if(!isset($_SESSION['username'])){
 		  background-color: #555;
 		  color: white;
 		  padding: 15px;
-		  position:absolute;
-		  bottom:0px;
+		  position: fixed;
+		  bottom: 0px;
 		  width: 100%;
 		}
 		
@@ -193,7 +193,6 @@ if(!isset($_SESSION['username'])){
 				</div>
 			</div>
 		</div>
-
 		<footer class="container-fluid">
 			<p>Footer Text</p>
 		</footer>

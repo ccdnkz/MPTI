@@ -70,7 +70,7 @@ if(!isset($_SESSION['username'])){
 		  background-color: #555;
 		  color: white;
 		  padding: 15px;
-		  position:absolute;
+		  position:fixed;
 		  bottom:0px;
 		  width: 100%;
 		}
@@ -83,6 +83,7 @@ if(!isset($_SESSION['username'])){
 		  }
 		  .row.content {height: auto;} 
 		}
+		select:invalid { color: gray; }
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -154,28 +155,28 @@ if(!isset($_SESSION['username'])){
 											<table class="table table-condensed">
 												<tr>
 													<td><label for="nik">Nomor Induk Karyawan</label></td>
-													<td><input name="nik" type="text" class="form-control" id="nik" placeholder="Nomor Induk Karyawan" required/>
+													<td><input name="nik" type="text" title="Masukan Nomor induk Karyawan" class="form-control" id="nik" placeholder="Nomor Induk Karyawan" required/>
 												</tr>
 												<tr>
 													<td><label for="nama_kar">Nama Karyawan</label></td>
-													<td><input name="nama_kar" type="text" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
+													<td><input name="nama_kar" type="text" pattern="[A-Za-z]" title="Masukan Nama Karyawan" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><label for="alamat_kar">Alamat Karyawan</label></td>
-													<td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
+													<td><input name="alamat_kar" type="text" title="Masukan Alamat Karyawan" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><label for="no_ktp">Nomor KTP</label></td>
-													<td><input name="no_ktp" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="16" class="form-control" id="no_ktp" placeholder="Nomor KTP" required/><span id="id" style='color:red'></span></td>
+													<td><input name="no_ktp" type="text" pattern="[0-9]{16}" title="Masukan 16 digit  No.KTP anda" class="form-control" id="no_ktp" placeholder="Nomor KTP" required/><span id="id" style='color:red'></span></td>
 												</tr>
 												<tr>
 													<td><label for="no_rek">Nomor Rekening</label></td>
-													<td><input name="no_rek" type="text" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
+													<td><input name="no_rek" type="text" pattern="[0-9]{10}" title="Masukan 10 digit No.Rekening anda" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
 												</tr>
 												<tr>
 													<td><label for="gol_kar">Golongan</label></td>
 													<td><select name="gol_kar" name="gol_kar" id="gol_kar" class="form-control" required>
-													<option></option>
+													<option value="" disabled selected hidden>Pilih salah Satu...</option>
 													<option value="A">A</option>
 													<option value="B">B</option>
 													<option value="C">C</option>
@@ -184,7 +185,7 @@ if(!isset($_SESSION['username'])){
 												</tr>
 												<tr>
 													<td><label for="gaji_kar">Gaji Karyawan</label></td>
-													<td><input name="gaji_kar" type="text" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
+													<td><input name="gaji_kar" type="text" pattern="[0-9]" title="Masukan nominal gaji karyawan" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><input type="submit" value="Insert" class="btn btn-sm btn-primary"/>&nbsp;<a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>
