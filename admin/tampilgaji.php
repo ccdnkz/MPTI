@@ -70,6 +70,9 @@ if(!isset($_SESSION['username'])){
 		  background-color: #555;
 		  color: white;
 		  padding: 15px;
+		  position:absolute;
+		  bottom:0px;
+		  width: 100%;
 		}
 		
 		/* On small screens, set height to 'auto' for sidenav and grid */
@@ -118,11 +121,11 @@ if(!isset($_SESSION['username'])){
 				<div class="col-sm-3 sidenav">
 					<h4 align="center">Menu</h4>
 					<ul class="nav nav-pills nav-stacked">
-						<li class="active"><a href="index.php">Data Karyawan</a></li>
+						<li><a href="index.php">Data Karyawan</a></li>
 						<li><a href="insert.php">Insert Data Karyawan</a></li>
 						<li><a href="update.php">Update Data Karyawan</a></li>
 						<li><a href="datagaji.php">Data Gaji Karyawan</a></li>
-						<li><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
+						<li class="active"><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
 						<li><a href="../logout.php">Logout</a></li>
 					</ul><br>
 				</div>
