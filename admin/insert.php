@@ -159,7 +159,7 @@ if(!isset($_SESSION['username'])){
 												</tr>
 												<tr>
 													<td><label for="nama_kar">Nama Karyawan</label></td>
-													<td><input name="nama_kar" type="text" pattern="[A-Za-z]" title="Masukan Nama Karyawan" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
+													<td><input name="nama_kar" type="text" title="Masukan Nama Karyawan" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><label for="alamat_kar">Alamat Karyawan</label></td>
