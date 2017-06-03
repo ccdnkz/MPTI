@@ -185,7 +185,7 @@ if(!isset($_SESSION['username'])){
           <td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
         </tr>
       <td><label for="no_ktp">Nomor KTP</label></td>
-                          <td><input name="no_ktp" type="text" pattern="[0-9]{16}" title="Masukan 16 digit  No.KTP anda" class="form-control" id="no_ktp" placeholder="Nomor KTP" required/><span id="id" style='color:red'></span></td>
+                          <td><input name="no_ktp" type="text" title="Masukan 16 digit  No.KTP anda" class="form-control" id="no_ktp" disabled/><span id="id" style='color:red'></span></td>
                         </tr>
                         <tr>
                           <td><label for="no_rek">Nomor Rekening</label></td>

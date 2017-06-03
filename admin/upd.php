@@ -7,7 +7,6 @@ $dbname = "payroll";
 $nik				= $_POST['nik'];
 $nama_kar 		    = $_POST['nama_kar'];
 $alamat_kar 	    = $_POST['alamat_kar'];
-$no_ktp				= $_POST['no_ktp'];
 $no_rek 	        = $_POST['no_rek'];
 $gol_kar	        = $_POST['gol_kar'];
 $gaji_kar			= $_POST['gaji_kar'];
@@ -20,7 +19,7 @@ if ($conn->connect_error) {
 } 
 
 // Perintah Eksekusi
-$sql = "UPDATE karyawan SET nik='$nik', nama_kar='$nama_kar', alamat_kar='$alamat_kar', no_ktp='$no_ktp', no_rek='$no_rek', gol_kar='$gol_kar', gaji_kar='$gaji_kar' where nik = '$nik'";
+$sql = "UPDATE karyawan SET nik='$nik', nama_kar='$nama_kar', alamat_kar='$alamat_kar', no_rek='$no_rek', gol_kar='$gol_kar', gaji_kar='$gaji_kar' where nik = '$nik'";
 
 
 // $conn->query($sql) = Eksekusi $sql(Query) di Koneksi Database $conn
