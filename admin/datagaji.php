@@ -151,6 +151,7 @@ if(!isset($_SESSION['username'])){
 								</div>
 								<div class="panel-body">
 									<div class="table-responsive">
+										
 										<?php
 										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, 
 										gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");

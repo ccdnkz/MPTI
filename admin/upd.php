@@ -26,7 +26,7 @@ $sql = "UPDATE karyawan SET nik='$nik', nama_kar='$nama_kar', alamat_kar='$alama
 // $conn->query($sql) = Eksekusi $sql(Query) di Koneksi Database $conn
 // Check Jika Berhasil (=== TRUE)
 if ($conn->query($sql) === TRUE) {
-    echo "<script>alert('Record berhasil terupdate'); window.location = 'update.php'</script>";
+    echo "<script>alert('Record berhasil terupdate'); window.location = 'index.php'</script>";
 } else {
     echo "<script>alert('Record gagal diupdate'); window.location = 'update.php'</script>" . $conn->error;
 }

@@ -240,7 +240,7 @@ if(!isset($_SESSION['username'])){
           </td>
          </tr>      
         <tr>
-          <td><input type="submit" value="Update"  class="btn btn-sm btn-success"/>&nbsp;<a href="index.php" class="btn btn-sm btn-success">Kembali</a></td>
+          <td><input type="submit" value="Update"  class="btn btn-sm btn-success" style="margin-right:10px;"/><a href="index.php" class="btn btn-sm btn-success">Kembali</a></td>
         </tr>
       </table>
     </form>

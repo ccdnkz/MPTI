@@ -185,7 +185,7 @@ if(!isset($_SESSION['username'])){
 												</tr>
 												<tr>
 													<td><label for="gaji_kar">Gaji Karyawan</label></td>
-													<td><input name="gaji_kar" type="text" pattern="[0-9]" title="Masukan nominal gaji karyawan" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
+													<td><input name="gaji_kar" type="text" pattern="[0-9]{}" title="Masukan nominal gaji karyawan" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><input type="submit" value="Insert" class="btn btn-sm btn-primary"/>&nbsp;<a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>

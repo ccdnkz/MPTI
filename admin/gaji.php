@@ -228,7 +228,8 @@ if(!isset($_SESSION['username'])){
 													<td><input name="waktu_transfer" type="text" class="form-control" id="waktu_transfer" value="<?php echo "".date("H:i:s").""?>" readonly="readonly"/></td>
 												</tr>
 												<tr>
-													<td><input type="submit" value="Simpan Data"  class="btn btn-sm btn-primary"/>&nbsp;<a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>
+													<td><input type="submit" value="Simpan Data"  class="btn btn-sm btn-primary" onclick="return confirm('Yakin ingin membuat record?')" style="margin-right:10px;
+														"/><a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>
 												</tr>
 											</table>
 										</form>
