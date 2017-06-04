@@ -184,10 +184,6 @@ if(!isset($_SESSION['username'])){
           <td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
         </tr>
         <tr>
-          <td><label for="no_ktp">Nomor KTP</label></td>
-          <td><input name="no_ktp" type="text" title="Masukan 16 digit  No.KTP anda" class="form-control" id="no_ktp" disabled/><span id="id" style='color:red'></span></td>
-        </tr>
-        <tr>
           <td><label for="no_rek">Nomor Rekening</label></td>
           <td><input name="no_rek" type="text" pattern="[0-9]{10}" title="Masukan 10 digit No.Rekening anda" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
         </tr>
