@@ -9,7 +9,72 @@
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/personal.css" rel="stylesheet">
+    <style>
+    	body, html {
+		    height: 100%;
+		    margin: 0;
+		}
+
+		.hero-image {
+		background: linear-gradient(
+                     rgba(20,20,20, .5), 
+                     rgba(20,20,20, .5)),
+                     url("rsc/meeting.jpg");
+		  height: 50%;
+		  background-position: center;
+		  background-repeat: no-repeat;
+		  background-size: cover;
+		  position: relative;
+		}
+
+		.hero-text {
+		  text-align: center;
+		  position: absolute;
+		  top: 50%;
+		  left: 50%;
+		  transform: translate(-50%, -50%);
+		  color: white;
+		}
+
+		.hero-text button {
+		  border: none;
+		  outline: 0;
+		  display: inline-block;
+		  padding: 10px 25px;
+		  color: black;
+		  background-color: #ddd;
+		  text-align: center;
+		  cursor: pointer;
+		}
+
+		.hero-text button:hover {
+		  background-color: #555;
+		  color: white;
+		}
+		.loginbtn
+		 {
+		 	background: #353231;
+		 	width: 100%;
+		 	color: white;
+		 }
+		 .loginbox
+		 {
+		 	width: 50%;
+		 	float: none;
+		     margin-left: auto;
+		     margin-right: auto;
+		 }
+		 .pnlhdr
+		 {
+		 	font-weight: lighter;
+		 	font-size: 20px;
+		 	margin: 0 auto;
+		 }
+		 .pnle{
+		 	text-align: center;
+		 }
+ 
+    </style>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -18,16 +83,15 @@
     <![endif]-->
   </head>
   <body>
-    <div class="jumbotron">
-    	<h1 style="text-align:center;color: white;">
-    		Payroll System
-    	</h1>
-    </div>
-	<div class="container">
+    <div class="hero-image">
+	  <div class="hero-text">
+	    <h1 style="font-size:50px">Payroll System</h1>
+	  </div>
+	</div>
+	<div class="container-fluid" style="background:#65605F;">
 		<div class="row">
-			<div class"col-md-4"></div>
-			<div class"col-md-4">
-				<div class="panel panel-primary loginbox">
+			<div class"col-md-4" style="margin-top:30px;">
+				<div class="panel panel-default loginbox">
 					<div class="panel-heading pnle">
 						<label class="pnlhdr">Welcome!</label>
 					</div>
@@ -82,7 +146,7 @@
 								<h4>Password</h4>
 								<input type="password" class="form-control" name="password" />
 							</div>
-							<input type="submit" value="Login" class="btn btn-info loginbtn" />
+							<input type="submit" value="Login" class="btn btn-default loginbtn" />
 						</form>
 					</div>
 				</div>
