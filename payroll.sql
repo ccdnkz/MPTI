@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2017 at 05:58 PM
+-- Generation Time: Jun 04, 2017 at 02:44 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -51,7 +51,7 @@ CREATE TABLE `karyawan` (
   `alamat_kar` varchar(100) NOT NULL,
   `no_ktp` int(16) NOT NULL,
   `no_rek` int(30) NOT NULL,
-  `gol_kar` varchar(10) NOT NULL,
+  `gol_kar` enum('A','B','C') NOT NULL,
   `jabatan` enum('Staff','Manajer') NOT NULL DEFAULT 'Staff',
   `gaji_kar` decimal(10,0) NOT NULL,
   `status` enum('Aktif','Tidak Aktif') NOT NULL DEFAULT 'Aktif'

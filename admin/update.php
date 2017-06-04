@@ -188,19 +188,26 @@ if(!isset($_SESSION['username'])){
           <td><input name="no_rek" type="text" pattern="[0-9]{10}" title="Masukan 10 digit No.Rekening anda" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
         </tr>
         <tr>
-          <td><label for="gol_kar">Golongan</label></td>
-          <td><select name="gol_kar" name="gol_kar" id="gol_kar" class="form-control" required>
-          <option value="" disabled selected hidden>Pilih salah Satu...</option>
-          <option value="A">A</option>
-          <option value="B">B</option>
-          <option value="C">C</option>
-          </select>
-          </td>
+          <td><label for="golongan">Golongan</label></td>
+			<td> 
+				<select class="form-control" name="gol_kar" type="text" class="form-control" id="gol_kar">
+					<option value="" disabled selected hidden>Pilih Golongan</option>
+					<?php
+					$table_name = "karyawan";
+					$column_name = "gol_kar";
+					$result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
+					$row = mysql_fetch_array($result);
+					$enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+					foreach($enumList as $value)
+						echo "<option value=\"$value\">$value</option>";
+					?>
+				</select>
+			</td>
         </tr>
         <tr>
-          <td><label for="gaji_kar">Gaji Karyawan</label></td>
-          <td><input name="gaji_kar" type="text" pattern="[0-9]{}" title="Masukan nominal gaji karyawan" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
-        </tr>
+			<td><label for="gaji_kar">Gaji Karyawan</label></td>
+			<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
+		</tr>
         <tr>
           <td><label for="jabatan">Jabatan</label></td>
           <td> 
