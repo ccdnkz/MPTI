@@ -24,6 +24,20 @@ if(!isset($_SESSION['username'])){
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+    	@page { size: auto;  margin: 0mm; }
+    	@media print
+			{    
+			    .no-print, .no-print *
+			    {
+			        display: none !important;
+			    }
+			    .panel,.panel-heading {
+			    	border: none !important;
+			    }
+			}
+    </style>
+
 	<script type="text/javascript">
 		// 1 detik = 1000
 		window.setTimeout("waktu()",1000);  
@@ -56,13 +70,13 @@ if(!isset($_SESSION['username'])){
 	</script>
 	</head>
 	<body>
-		<div class="col-lg-6">
+		<div class="col-lg-6" style="margin-top:20px;">
             <div class="panel panel-primary">
               <div class="panel-heading">
               <h3 class="panel-title" ><i class="fa fa-user"></i> Slip Gaji Karyawan Bulan <?php echo date("F Y");?> </h3> 
               </div>
               <div class="panel-body">
-                 <div class="table-responsive">
+                 <div class="table-responsive " id="pagy2">
                     <?php
                     $tampil=mysql_query("SELECT * FROM karyawan k,gaji g WHERE k.id_kar=g.id_kar AND k.nik='$_GET[kd]'");
                     $total=mysql_num_rows($tampil);
@@ -122,17 +136,19 @@ if(!isset($_SESSION['username'])){
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll,&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diterima Oleh,
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					Diterima Oleh,
 					<br />
 					<br />
 					<br />
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agus Rianto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $data['nama_kar'];?>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $data['nama_kar'];?>
 					<?php
 					}
 					?>
                 </div>
-                <div class="text-right">
+                <div class="text-right no-print">
                   <a href="#" target="_blank" class="btn btn-xs btn-warning" onclick="window.print();return false">Cetak  <i class="fa fa-print"></i></a>
                 </div>
               </div> 

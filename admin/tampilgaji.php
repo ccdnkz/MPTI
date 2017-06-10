@@ -74,14 +74,22 @@ if(!isset($_SESSION['username'])){
 		  bottom:0px;
 		  width: 100%;
 		}
-		
+		 @media print
+			{    
+			    .no-print, .no-print *
+			    {
+			        display: none !important;
+			    }
+			}
 		/* On small screens, set height to 'auto' for sidenav and grid */
 		@media screen and (max-width: 767px) {
 		  .sidenav {
 			height: auto;
 			padding: 15px;
 		  }
+		}
 		  .row.content {height: auto;} 
+		 
 		}
 	</style>
 	<body>
@@ -168,6 +176,7 @@ if(!isset($_SESSION['username'])){
 											<th>Take Home Pay <i class="fa fa-sort"></i></th>
 											<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
 											<th>Waktu Transfer <i class="fa fa-sort"></i></th>
+											<th>&nbsp;</th>
 										</tr>
 										<?php
 										while($data=mysql_fetch_array($tampil))
@@ -182,24 +191,28 @@ if(!isset($_SESSION['username'])){
 											<td>Rp.<?php echo number_format($data['total_gaji'],2,",",".");?></td>
 											<td><?php echo $data['tgl_transfer'];?></td>
 											<td><?php echo $data['waktu_transfer']; ?></td>
+											<td>
+												<div class="text-right">
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
+													</a>
+													<!--<?php
+													$kirim=mysql_query("SELECT * FROM karyawan, gaji");
+													?>
+													<?php
+													while($data=mysql_fetch_array($kirim))
+													{ ?>
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
+													</a>
+													<?php   
+													}
+													?>!-->
+												</div>
+											</td>
 										</tr>
 										<?php   
 										}
 										?>
 										</table>
-									</div>
-									<div class="text-right">
-										<?php
-										$kirim=mysql_query("SELECT * FROM karyawan, gaji");
-										?>
-										<?php
-										while($data=mysql_fetch_array($kirim))
-										{ ?>
-										<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
-										</a>
-										<?php   
-										}
-										?>
 									</div>
 								</div> 
 							</div>
