@@ -54,6 +54,19 @@ if(!isset($_SESSION['username'])){
 			popupWindow = window.open(url,winName,settings)
 		}
 	</script>
+	<style>
+		@page { size: auto;  margin: 0mm; }
+    	@media print
+			{    
+			    .no-print, .no-print *
+			    {
+			        display: none !important;
+			    }
+			    .panel,.panel-heading {
+			    	border: none !important;
+			    }
+			}
+	</style>
 	</head>
 	<body>
 		<div class="container-fluid">
@@ -61,9 +74,9 @@ if(!isset($_SESSION['username'])){
 				<div class="col-lg-12">
 					<table width="900">
 						<tr>
-						<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
+						<td width="250"><div class="Tanggal no-print"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
 						<td align="left" width="30"> - </td>
-						<td align="left" width="620"> <h4><div id="output" class="jam" ></div></h4></td>
+						<td align="left" width="620"> <h4><div id="output" class="jam no-print" ></div></h4></td>
 						</tr>
 					</table>
 					<br />
@@ -72,7 +85,7 @@ if(!isset($_SESSION['username'])){
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title"><i class="fa fa-user"></i> Data Penggajian Karyawan </h3> 
+							<h3 class="panel-title text-center"><i class="fa fa-user"></i> Data Penggajian Karyawan </h3> 
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
@@ -110,7 +123,7 @@ if(!isset($_SESSION['username'])){
 								?>
 								</table>
 						   </div>
-							<div class="text-right">
+							<div class="text-right no-print">
 								<a href="#" class="btn btn-sm btn-warning" onclick="window.print();return false"><i class="fa fa-print"></i> Cetak Data</a>
 							</div>
 						</div> 
