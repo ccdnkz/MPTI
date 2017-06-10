@@ -73,17 +73,18 @@ if(!isset($_SESSION['username'])){
 		<div class="col-lg-6" style="margin-top:20px;">
             <div class="panel panel-primary">
               <div class="panel-heading">
-              <h3 class="panel-title" ><i class="fa fa-user"></i> Slip Gaji Karyawan Bulan <?php echo date("F Y");?> </h3> 
+              <?php
+              $tampil=mysql_query("SELECT * FROM karyawan k,gaji g WHERE k.id_kar=g.id_kar AND k.nik='$_GET[kd]' AND g.waktu_transfer='$_GET[wkt]'");
+              $total=mysql_num_rows($tampil);
+              $data=mysql_fetch_array($tampil);
+              ?>
+              <h3 class="panel-title" ><i class="fa fa-user"></i> Slip Gaji Karyawan Bulan <?php echo $data['bulan_transfer']; ?> </h3> 
               </div>
               <div class="panel-body">
                  <div class="table-responsive " id="pagy2">
-                    <?php
-                    $tampil=mysql_query("SELECT * FROM karyawan k,gaji g WHERE k.id_kar=g.id_kar AND k.nik='$_GET[kd]'");
-                    $total=mysql_num_rows($tampil);
-					?>
 					<table class="table table-condensed table-hover table-striped tablesorter">
-						<?php while($data=mysql_fetch_array($tampil))
-						{
+						<?php 
+						
 						?>
 						<tr>
 							<td>Kode Karyawan</td>
@@ -145,7 +146,7 @@ if(!isset($_SESSION['username'])){
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agus Rianto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $data['nama_kar'];?>
 					<?php
-					}
+					
 					?>
                 </div>
                 <div class="text-right no-print">

@@ -80,12 +80,37 @@ if(!isset($_SESSION['username'])){
     }
     
     /* Set black background color, white text and some padding */
+    html {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      position: relative;
+      margin: 0;
+      padding-bottom: 6rem;
+      min-height: 100%;
+    }
+
+    /**
+     * Footer Styles
+     */
+
     footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
       background-color: #555;
       color: white;
-      padding: 15px;
     }
-    
     /* On small screens, set height to 'auto' for sidenav and grid */
     @media screen and (max-width: 767px) {
       .sidenav {
@@ -94,6 +119,9 @@ if(!isset($_SESSION['username'])){
       }
       .row.content {height: auto;} 
     }
+    .navbar-brand img:hover{
+			 -webkit-filter: contrast(200%) brightness(150%);
+		}
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">

@@ -66,13 +66,39 @@ if(!isset($_SESSION['username'])){
 		}
 		
 		/* Set black background color, white text and some padding */
-		footer {
-		  background-color: #555;
-		  color: white;
-		  padding: 15px;
-		  position:fixed;
-		  bottom:0px;
-		  width: 100%;
+		html {
+      height: 100%;
+      box-sizing: border-box;
+    }
+
+    *,
+    *:before,
+    *:after {
+      box-sizing: inherit;
+    }
+
+    body {
+      position: relative;
+      margin: 0;
+      padding-bottom: 6rem;
+      min-height: 100%;
+    }
+
+    /**
+     * Footer Styles
+     */
+
+    footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
+      background-color: #555;
+      color: white;
+    }
+    .navbar-brand img:hover{
+			 -webkit-filter: contrast(200%) brightness(150%);
 		}
 		 @media print
 			{    
@@ -193,7 +219,7 @@ if(!isset($_SESSION['username'])){
 											<td><?php echo $data['waktu_transfer']; ?></td>
 											<td>
 												<div class="text-right">
-													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>&amp;wkt=<?php echo $data['waktu_transfer'];?>">Print
 													</a>
 													<!--<?php
 													$kirim=mysql_query("SELECT * FROM karyawan, gaji");
