@@ -217,7 +217,11 @@ if(!isset($_SESSION['username'])){
 											<table class="table table-condensed">
 												<tr>
 													<td><label for="id_kar">NIK Karyawan</label></td>
-													<td><input name="id_kar" type="text" class="form-control" id="id_kar" value="<?php echo $data['nik'];?>" readonly="readonly"/></td>
+													<td><input name="nik" type="text" class="form-control" id="nik" value="<?php echo $data['nik'];?>" readonly="readonly" /></td>
+												</tr>
+												<tr>
+													<td style="display:none;"><label for="id_kar">ID Karyawan</label></td>
+													<td style="display:none;"><input name="id_kar" type="text" class="form-control" id="id_kar" value="<?php echo $data['id_kar'];?>" readonly="readonly"/></td>
 												</tr>
 												<tr>
 													<td><label for="kode_gaji">Kode Gaji</label></td>
