@@ -176,11 +176,23 @@ if(!isset($_SESSION['username'])){
 									<h3 class="panel-title"><i class="fa fa-user"></i> Data Penggajian Karyawan </h3> 
 								</div>
 								<div class="panel-body">
+									<div>
+											<div class="dropdown text-left" style="margin-bottom:10px;">
+											    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">Sort by
+											    <span class="caret"></span></button>
+											    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+											      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Bulan Transfer</a></li>
+											      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">CSS</a></li>
+											      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">JavaScript</a></li>
+											      <li role="presentation" class="divider"></li>
+											      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">About Us</a></li>
+											    </ul>
+	  										</div>	
+										</div>
 									<div class="table-responsive">
-										
 										<?php
 										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, 
-										gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
+										gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer,gaji.bulan_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
 										$total=mysql_num_rows($tampil); ?>
 										<table class="table table-bordered table-hover table-striped tablesorter">
 								  
@@ -190,9 +202,9 @@ if(!isset($_SESSION['username'])){
 											<th>No Rek <i class="fa fa-sort"></i></th>
 											<th>Kode Gaji <i class="fa fa-sort"></i></th>
 											<th>Gaji Utama <i class="fa fa-sort"></i></th>
-											<th>Uang_lembur <i class="fa fa-sort"></i></th>
+											<th>Uang lembur <i class="fa fa-sort"></i></th>
 											<th>Total Gaji <i class="fa fa-sort"></i></th>
-											<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
+											<th>Bulan Transfer <i class="fa fa-sort"></i></th>
 											<th>Waktu Transfer <i class="fa fa-sort"></i></th>
 										</tr>
 										<?php while($data=mysql_fetch_array($tampil))
@@ -206,7 +218,7 @@ if(!isset($_SESSION['username'])){
 											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
 											<td>Rp.<?php echo number_format($data['uang_lembur'],2,",",".");?></td>
 											<td>Rp.<?php echo number_format($data['total_gaji'],2,",",".");?></td>
-											<td><?php echo $data['tgl_transfer'];?></td>
+											<td><?php echo $data['bulan_transfer'];?></td>
 											<td><?php echo $data['waktu_transfer']; ?></td>
 										</tr>
 										<?php

@@ -100,7 +100,7 @@ if(!isset($_SESSION['username'])){
 									<th>No Rek <i class="fa fa-sort"></i></th>
 									<th>Kode Gaji <i class="fa fa-sort"></i></th>
 									<th>Gaji Utama <i class="fa fa-sort"></i></th>
-									<th>Uang_lembur <i class="fa fa-sort"></i></th>
+									<th>Uang lembur <i class="fa fa-sort"></i></th>
 									<th>Total Gaji <i class="fa fa-sort"></i></th>
 									<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
 									<th>Waktu Transfer <i class="fa fa-sort"></i></th>

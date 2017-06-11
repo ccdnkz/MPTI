@@ -200,8 +200,8 @@ if(!isset($_SESSION['username'])){
 										<form action="transfergaji.php" method="post" autocomplete="off" name="transfer">
 											<table class="table table-condensed">
 												<tr>
-													<td><label for="id_kar">Id Karyawan</label></td>
-													<td><input name="id_kar" type="text" class="form-control" id="id_kar" value="<?php echo $data['id_kar'];?>" readonly="readonly"/></td>
+													<td><label for="id_kar">NIK Karyawan</label></td>
+													<td><input name="id_kar" type="text" class="form-control" id="id_kar" value="<?php echo $data['nik'];?>" readonly="readonly"/></td>
 												</tr>
 												<tr>
 													<td><label for="kode_gaji">Kode Gaji</label></td>
