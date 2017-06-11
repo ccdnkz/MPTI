@@ -30,9 +30,10 @@ if(!isset($_SESSION['username'])){
 		var uang_lembur = document.transfer.uang_lembur.value;
 		var gaji_utama = document.transfer.gaji_utama.value;
 		var total_gaji = document.transfer.total_gaji.value;
+		var ketidakhadiran = document.transfer.ketidakhadiran.value;
 		uang_lembur = ( gaji_utama / 173 ) * jam_lembur;
 		document.transfer.uang_lembur.value = Math.floor( uang_lembur );
-		total_gaji = (gaji_utama - uang_lembur) + (2 * uang_lembur);
+		total_gaji = (gaji_utama - uang_lembur) + (2 * uang_lembur) - (ketidakhadiran * 100000);
 		document.transfer.total_gaji.value = Math.floor( total_gaji );
 	}
 	</script>
@@ -236,6 +237,10 @@ if(!isset($_SESSION['username'])){
 												<tr>
 													<td><label for="jam_lembur">Jam Lembur</label></td>
 													<td><input name="jam_lembur" type="text" class="form-control" id="jam_lembur" autofocus="on" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" required/></td>
+												</tr>
+												<tr>
+													<td><label for="ketidakhadiran">Jumlah Ketidakhadiran</label></td>
+													<td><input name="ketidakhadiran" type="text" class="form-control" id="ketidakhadiran" autofocus="on" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" required/></td>
 												</tr>
 												<tr>
 													<td><label for="gaji_utama">Gaji Utama</label></td>
