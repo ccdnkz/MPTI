@@ -198,7 +198,7 @@ if(!isset($_SESSION['username'])){
 								<div class="panel-body">
 									<div class="table-responsive">
 										<?php
-										$tampil=mysql_query("select * from karyawan order by id_kar desc");
+										$tampil=mysql_query("select * from karyawan order by id_kar asc");
 										?>
 										<table class="table table-bordered table-hover table-striped tablesorter">
 										<tr>
@@ -212,11 +212,16 @@ if(!isset($_SESSION['username'])){
 											<th>Status <i class="fa fa-sort"></i></th>
 										</tr>
 										<?php
-										while($data=mysql_fetch_array($tampil))
-										{ ?>
+											while($data=mysql_fetch_array($tampil)) {
+												if($data['status'] == "Aktif"){
+													$link = "<a href='gaji.php?hal=transfer&kd=" . $data['id_kar'] . "<i class='fa fa-user'></i>" . $data['nama_kar'] . "</a>";
+												} else {
+													$link = $data['nama_kar'];
+												}
+										?>
 										<tr>
 											<td><?php echo $data['nik']; ?></td>
-											<td><a href="gaji.php?hal=transfer&kd=<?php echo $data['id_kar'];?>"><i class="fa fa-user"></i> <?php echo $data['nama_kar']; ?></a></td>
+											<td><?php echo $link; ?></td>
 											<td><?php echo $data['alamat_kar']; ?></td>
 											<td><?php echo $data['no_rek']; ?></td>
 											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
