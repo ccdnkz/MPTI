@@ -26,12 +26,28 @@ if(!isset($_SESSION['username'])){
     <![endif]-->
 	<script type="text/javascript">
 		// 1 detik = 1000
-		window.setTimeout("waktu()",1000);  
-		function waktu() {   
-			var tanggal = new Date();  
-			setTimeout("waktu()",1000);  
-			document.getElementById("output").innerHTML = tanggal.getHours()+":"+tanggal.getMinutes()+":"+tanggal.getSeconds();
+		window.setTimeout("startTime()",1000);  
+		function checkTime(i) {
+		  if (i < 10) {
+		    i = "0" + i;
+		  }
+		  return i;
 		}
+
+		function startTime() {
+		  var today = new Date();
+		  var h = today.getHours();
+		  var m = today.getMinutes();
+		  var s = today.getSeconds();
+		  // add a zero in front of numbers<10
+		  m = checkTime(m);
+		  s = checkTime(s);
+		  document.getElementById('time').innerHTML = h + ":" + m + ":" + s;
+		  t = setTimeout(function() {
+		    startTime()
+		  }, 500);
+		}
+		startTime();
 	</script>
 	<script language="JavaScript">
 		var tanggallengkap = new String();
@@ -76,7 +92,7 @@ if(!isset($_SESSION['username'])){
 						<tr>
 						<td width="250"><div class="Tanggal no-print"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
 						<td align="left" width="30"> - </td>
-						<td align="left" width="620"> <h4><div id="output" class="jam no-print" ></div></h4></td>
+						<td align="left" width="620"> <h4><div id="time"></div></h4></td>
 						</tr>
 					</table>
 					<br />
