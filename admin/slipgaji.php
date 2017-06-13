@@ -36,6 +36,14 @@ if(!isset($_SESSION['username'])){
 			    	border: none !important;
 			    }
 			}
+		.table-borderless > tbody > tr > td,
+		.table-borderless > tbody > tr > th,
+		.table-borderless > tfoot > tr > td,
+		.table-borderless > tfoot > tr > th,
+		.table-borderless > thead > tr > td,
+		.table-borderless > thead > tr > th {
+		    border: none;
+		}
     </style>
 
 	<script type="text/javascript">
@@ -133,21 +141,23 @@ if(!isset($_SESSION['username'])){
 						</tr>
                    </table>
                 </div>
-                <div class="text-Left">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Payroll,&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					Diterima Oleh,
-					<br />
-					<br />
-					<br />
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Agus Rianto&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $data['nama_kar'];?>
-					<?php
-					
-					?>
+                <table class="table table-borderless">
+				    <tbody>
+				      <tr class="text-center">
+				        <td>Payroll,</td>
+				        <td >Diterima Oleh,</td>
+				      </tr>
+				      <tr>
+				      	<td>&nbsp;</td>
+				      	<td>&nbsp;</td>
+				      </tr>
+				      <tr class="text-center">
+				        <td>Agus Rianto</td>
+				        <td><?php echo $data['nama_kar'];?></td>
+				      </tr>
+
+				    </tbody>
+				  </table>
                 </div>
                 <div class="text-right no-print">
                   <a href="#" target="_blank" class="btn btn-xs btn-warning" onclick="window.print();return false">Cetak  <i class="fa fa-print"></i></a>
