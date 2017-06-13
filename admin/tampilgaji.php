@@ -202,10 +202,37 @@ if(!isset($_SESSION['username'])){
 								<div class="panel-heading">
 									<h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
 								</div>
+
 								<div class="panel-body">
-									<div class="table-responsive">
+									<form method="post">
+									<div class="col-lg-5" style="margin-bottom:10px;">
+										<select name="blntrf" class="form-control" required>
+										<option value="" disabled hidden selected>Select Month</option>
+										<option value="Januari">Januari</option>
+										<option value="Februari">Februari</option>
+										<option value="Maret">Maret</option>
+										<option value="April">April</option>
+										<option value="Mei">Mei</option>
+										<option value="Juni">Juni</option>
+										<option value="Juli">Juli</option>
+										<option value="Agustus">Agustus</option>
+										<option value="September">September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
+									</div>
+									<div class="col-sm-5" style="margin-bottom:10px;">
+										<button type="submit" class="btn btn-info" name="submitsort">Retrieve</button>
+									</div>
+								</form>
+									<div class="table-responsive col-lg-12">
 										<?php
-										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
+										$sort="";
+										if($_SERVER["REQUEST_METHOD"] == "POST"){
+											$sort = $_POST['blntrf'];
+										}
+										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar AND gaji.bulan_transfer='$sort'");
 										?>
 										<table class="table table-bordered table-hover table-striped tablesorter">
 										<tr>
