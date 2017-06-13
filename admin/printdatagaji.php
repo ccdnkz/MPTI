@@ -101,13 +101,13 @@ if(!isset($_SESSION['username'])){
 				<div class="col-lg-12">
 					<div class="panel panel-primary">
 						<div class="panel-heading">
-							<h3 class="panel-title text-center"><i class="fa fa-user"></i> Data Penggajian Karyawan </h3> 
+							<h3 class="panel-title text-center"><i class="fa fa-user"></i> Data Penggajian Karyawan Bulan <?php echo $_GET['bln']; ?> </h3> 
 						</div>
 						<div class="panel-body">
 							<div class="table-responsive">
 								<?php
 								$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, 
-								gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar");
+								gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar AND gaji.bulan_transfer='$_GET[bln]'");
 								$total=mysql_num_rows($tampil); ?>
 								<table class="table table-bordered table-hover table-striped tablesorter">
 								<tr>

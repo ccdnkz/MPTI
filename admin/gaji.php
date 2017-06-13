@@ -257,7 +257,7 @@ if(!isset($_SESSION['username'])){
 												<tr>
 													<td><label for="bulan_transfer">Bulan Transfer</label></td>
 													<td><select name="bulan_transfer" name="bulan_transfer" id="bulan_transfer" class="form-control" required>
-													<option></option>
+													<option value="" disabled selected hidden>Pilih Status</option>
 													<option value="Januari">Januari</option>
 													<option value="Februari">Februari</option>
 													<option value="Maret">Maret</option>
