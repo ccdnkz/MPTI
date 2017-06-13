@@ -139,53 +139,6 @@ if(!isset($_SESSION['username'])){
     .navbar-brand img:hover{
 			 -webkit-filter: contrast(200%) brightness(150%);
 		}
-		#mySidenav a {
-    position: absolute;
-    left: -80px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 340px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 0 5px 5px 0;
-
-  }
-
-  #mySidenav a:hover {
-      left: 0;
-      color:white;
-  }
-
-  #id {
-      top: 55px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
-
-  #ud {
-      top: 135px;
-      background-color: #555;
-      color: #555;
-  }
-
-  #dg {
-      top: 215px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
-
-  #csp {
-      top: 295px;
-      background-color: #555;
-      color: #555;
-  }
-
-  #lo {
-      top: 375px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
-
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -202,6 +155,8 @@ if(!isset($_SESSION['username'])){
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+						<li><a href="#">Karyawan</a></li>
+						<li><a href="#">Laporan</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -219,16 +174,18 @@ if(!isset($_SESSION['username'])){
 
 		<div class="container-fluid">
 			<div class="row">
-		        <div class="col-sm-3 sidenav" id="mySidenav">
-		          <h4 align="center">Menu</h4>
-		          <ul class="nav nav-stacked">
-		            <a href="insert.php" id ="id">Insert Data Karyawan</a>
-		            <a href="update.php" id ="ud">Update Data Karyawan</a>
-		            <a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
-		            <a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
-		            <a href="../logout.php" id ="lo">Logout</a>
-		          </ul>
-        	</div>
+				<div class="col-sm-3 sidenav">
+					<h4 align="center">Menu</h4>
+					<ul class="nav nav-pills nav-stacked">
+						<li class="active"><a href="index.php">Data Karyawan</a></li>
+						<li><a href="insert.php">Insert Data Karyawan</a></li>
+						<li><a href="update.php">Update Data Karyawan</a></li>
+						<li><a href="datagaji.php">Data Gaji Karyawan</a></li>
+						<li><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
+						<li><a href="../logout.php">Logout</a></li>
+					</ul>
+					<br>
+				</div>
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-lg-12">
@@ -240,14 +197,14 @@ if(!isset($_SESSION['username'])){
 								</tr>
 							</table>
 							<br />
-							<div class="alert alert-warning alert-dismissable">
+							<div class="alert alert-success alert-dismissable">
 							  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 							 Anda Berada Di Halaman Transfer Gaji Karyawan
 							</div>
 						</div>
 			
 						<div class="col-lg-12">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
 									<h3 class="panel-title"><i class="fa fa-edit"></i> Data Transfer Gaji Karyawan</h3>
 								</div>
@@ -324,8 +281,8 @@ if(!isset($_SESSION['username'])){
 													<td><input name="waktu_transfer" type="text" class="form-control" id="waktu_transfer" value="<?php echo "".date("H:i:s").""?>" readonly="readonly"/></td>
 												</tr>
 												<tr>
-													<td><input type="submit" value="Simpan Data"  class="btn btn-sm btn-default" onclick="return confirm('Yakin ingin membuat record?')" style="margin-right:10px;
-														"/><a href="index.php" class="btn btn-sm btn-default">Kembali</a></td>
+													<td><input type="submit" value="Simpan Data"  class="btn btn-sm btn-primary" onclick="return confirm('Yakin ingin membuat record?')" style="margin-right:10px;
+														"/><a href="index.php" class="btn btn-sm btn-primary">Kembali</a></td>
 												</tr>
 											</table>
 										</form>
@@ -339,7 +296,7 @@ if(!isset($_SESSION['username'])){
 		</div>
 
 		<footer class="container-fluid">
-			<p>Copyright © 2017 - Payroll System</p>
+			<p>Footer Text</p>
 		</footer>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

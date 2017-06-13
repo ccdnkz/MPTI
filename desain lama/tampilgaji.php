@@ -116,62 +116,23 @@ if(!isset($_SESSION['username'])){
     .navbar-brand img:hover{
 			 -webkit-filter: contrast(200%) brightness(150%);
 		}
-		
+		 @media print
+			{    
+			    .no-print, .no-print *
+			    {
+			        display: none !important;
+			    }
+			}
 		/* On small screens, set height to 'auto' for sidenav and grid */
 		@media screen and (max-width: 767px) {
 		  .sidenav {
 			height: auto;
 			padding: 15px;
 		  }
-		  .row.content {height: auto;} 
 		}
-		select:invalid { color: gray; }
-		 #mySidenav a {
-    position: absolute;
-    left: -80px;
-    transition: 0.3s;
-    padding: 15px;
-    width: 340px;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 0 5px 5px 0;
-
-  }
-
-  #mySidenav a:hover {
-      left: 0;
-      color:white;
-  }
-
-  #id {
-      top: 55px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
-
-  #ud {
-      top: 135px;
-      background-color: #555;
-      color: #555;
-  }
-
-  #dg {
-      top: 215px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
-
-  #csp {
-      top: 295px;
-      background-color: #555;
-      color: #555;
-  }
-
-  #lo {
-      top: 375px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+		  .row.content {height: auto;} 
+		 
+		}
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -188,6 +149,8 @@ if(!isset($_SESSION['username'])){
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
+						<li><a href="#">Karyawan</a></li>
+						<li><a href="#">Laporan</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li class="dropdown">
@@ -202,99 +165,134 @@ if(!isset($_SESSION['username'])){
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
-		
+
 		<div class="container-fluid">
 			<div class="row">
-        <div class="col-sm-3 sidenav" id="mySidenav">
-          <h4 align="center">Menu</h4>
-          <ul class="nav nav-stacked">
-            <a href="insert.php" id ="id">Insert Data Karyawan</a>
-            <a href="update.php" id ="ud">Update Data Karyawan</a>
-            <a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
-            <a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
-            <a href="../logout.php" id ="lo">Logout</a>
-          </ul>
-            
-        </div>
+				<div class="col-sm-3 sidenav">
+					<h4 align="center">Menu</h4>
+					<ul class="nav nav-pills nav-stacked">
+						<li><a href="index.php">Data Karyawan</a></li>
+						<li><a href="insert.php">Insert Data Karyawan</a></li>
+						<li><a href="update.php">Update Data Karyawan</a></li>
+						<li><a href="datagaji.php">Data Gaji Karyawan</a></li>
+						<li class="active"><a href="tampilgaji.php">Cetak Slip Gaji Karyawan</a></li>
+						<li><a href="../logout.php">Logout</a></li>
+					</ul><br>
+				</div>
+				
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-lg-12">
 							<table width="900">
 							<tr>
-								<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
-								<td align="left" width="30"> - </td>
-								<td align="left" width="620"> <h4><div id="time"></div></h4></td>
+							<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
+							<td align="left" width="30"> - </td>
+							<td align="left" width="620"> <h4><div id="time"></div></h4></td>
 							</tr>
 							</table>
 							<br />
+							<div class="alert alert-success alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								Untuk mencetak slip gaji karyawan, silahkan klik tombol print dibawah.
+							</div>
 						</div>
 		
 						<div class="col-lg-12">
-							<div class="panel panel-default">
+							<div class="panel panel-primary">
 								<div class="panel-heading">
-									<h3 class="panel-title"><i class="fa fa-user"></i> Tambah Data Karyawan </h3>
+									<h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
 								</div>
+
 								<div class="panel-body">
-									<div class="table-responsive">
-										<form action="tambah.php" method="post">
-											<table class="table table-condensed">
-												<tr>
-													<td><label for="nik">Nomor Induk Karyawan</label></td>
-													<td><input name="nik" type="text" title="Masukan Nomor induk Karyawan" class="form-control" id="nik" placeholder="Nomor Induk Karyawan" required/>
-												</tr>
-												<tr>
-													<td><label for="nama_kar">Nama Karyawan</label></td>
-													<td><input name="nama_kar" type="text" title="Masukan Nama Karyawan" class="form-control" id="nama_kar" placeholder="Nama Karyawan" required/></td>
-												</tr>
-												<tr>
-													<td><label for="alamat_kar">Alamat Karyawan</label></td>
-													<td><input name="alamat_kar" type="text" title="Masukan Alamat Karyawan" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
-												</tr>
-												<tr>
-													<td><label for="no_ktp">Nomor KTP</label></td>
-													<td><input name="no_ktp" type="text" pattern="[0-9]{16}" title="Masukan 16 digit No.KTP anda" maxlength="16" class="form-control" id="no_ktp" placeholder="Nomor KTP" required/><span id="id" style='color:red'></span></td>
-												</tr>
-												<tr>
-													<td><label for="no_rek">Nomor Rekening</label></td>
-													<td><input name="no_rek" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
-												</tr>
-												<tr>
-													<td><label for="golongan">Golongan</label></td>
-													<td> 
-														<select class="form-control" name="gol_kar" type="text" class="form-control" id="gol_kar">
-															<option value="" disabled selected hidden>Pilih Golongan</option>
-															<?php
-																$table_name = "karyawan";
-																$column_name = "gol_kar";
-																$result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
-																$row = mysql_fetch_array($result);
-																$enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
-																foreach($enumList as $value)
-																echo "<option value=\"$value\">$value</option>";
-																?>
-														</select>
-													</td>
-												</tr>
-												<tr>
-													<td><label for="gaji_kar">Gaji Karyawan</label></td>
-													<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
-												</tr>
-												<tr>
-													<td><input type="submit" value="Insert" class="btn btn-sm btn-default"/>&nbsp;<a href="index.php" class="btn btn-sm btn-default">Kembali</a></td>
-												</tr>
-											</table>
-										</form>
+									<form method="post">
+									<div class="col-lg-5" style="margin-bottom:10px;">
+										<select name="blntrf" class="form-control" required>
+										<option value="" disabled hidden selected>Select Month</option>
+										<option value="Januari">Januari</option>
+										<option value="Februari">Februari</option>
+										<option value="Maret">Maret</option>
+										<option value="April">April</option>
+										<option value="Mei">Mei</option>
+										<option value="Juni">Juni</option>
+										<option value="Juli">Juli</option>
+										<option value="Agustus">Agustus</option>
+										<option value="September">September</option>
+										<option value="Oktober">Oktober</option>
+										<option value="November">November</option>
+										<option value="Desember">Desember</option>
+									</select>
+									</div>
+									<div class="col-sm-5" style="margin-bottom:10px;">
+										<button type="submit" class="btn btn-info" name="submitsort">Retrieve</button>
+									</div>
+								</form>
+									<div class="table-responsive col-lg-12">
+										<?php
+										$sort="";
+										if($_SERVER["REQUEST_METHOD"] == "POST"){
+											$sort = $_POST['blntrf'];
+										}
+										$tampil=mysql_query("SELECT karyawan.nik, karyawan.nama_kar, karyawan.no_rek, karyawan.gaji_kar, gaji.kode_gaji, gaji.uang_lembur, gaji.total_gaji, gaji.tgl_transfer, gaji.waktu_transfer FROM karyawan, gaji WHERE karyawan.id_kar=gaji.id_kar AND gaji.bulan_transfer='$sort'");
+										?>
+										<table class="table table-bordered table-hover table-striped tablesorter">
+										<tr>
+											<th>Kode<i class="fa fa-sort"></i></th>
+											<th>Nama<i class="fa fa-sort"></i></th>
+											<th>No Rek <i class="fa fa-sort"></i></th>
+											<th>Kode Gaji <i class="fa fa-sort"></i></th>
+											<th>Gaji Utama <i class="fa fa-sort"></i></th>
+											<th>Uang Lembur <i class="fa fa-sort"></i></th>
+											<th>Take Home Pay <i class="fa fa-sort"></i></th>
+											<th>Tanggal Transfer <i class="fa fa-sort"></i></th>
+											<th>Waktu Transfer <i class="fa fa-sort"></i></th>
+											<th>&nbsp;</th>
+										</tr>
+										<?php
+										while($data=mysql_fetch_array($tampil))
+										{ ?>
+										<tr>
+											<td><?php echo $data['nik'];?></td>
+											<td><?php echo $data['nama_kar']; ?></a></td>
+											<td><?php echo $data['no_rek']; ?></td>
+											<td><?php echo $data['kode_gaji']; ?></td>
+											<td>Rp.<?php echo number_format($data['gaji_kar'],2,",",".");?></td>
+											<td>Rp.<?php echo number_format($data['uang_lembur'],2,",",".");?></td>
+											<td>Rp.<?php echo number_format($data['total_gaji'],2,",",".");?></td>
+											<td><?php echo $data['tgl_transfer'];?></td>
+											<td><?php echo $data['waktu_transfer']; ?></td>
+											<td>
+												<div class="text-right">
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>&amp;wkt=<?php echo $data['waktu_transfer'];?>">Print
+													</a>
+													<!--<?php
+													$kirim=mysql_query("SELECT * FROM karyawan, gaji");
+													?>
+													<?php
+													while($data=mysql_fetch_array($kirim))
+													{ ?>
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>">Print
+													</a>
+													<?php   
+													}
+													?>!-->
+												</div>
+											</td>
+										</tr>
+										<?php   
+										}
+										?>
+										</table>
 									</div>
 								</div> 
 							</div>
 						</div>
-					</div><!-- /.row --> 
-				</div><!-- /#page-wrapper -->
-			</div><!-- /#wrapper -->
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<footer class="container-fluid">
-			<p>Copyright © 2017 - Payroll Systemt</p>
+			<p>Footer Text</p>
 		</footer>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
