@@ -144,16 +144,16 @@ if(!isset($_SESSION['username'])){
       color:white;
   }
 
-  #id {
-      top: 55px;
-      background-color: #9A9796;
-      color: #9A9796;
+  #dk {
+	    top: 55px;
+	    background-color: #9A9796;
+	    color: #9A9796;
   }
 
-  #ud {
-      top: 135px;
-      background-color: #555;
-      color: #555;
+  #id {
+	    top: 135px;
+	    background-color: #555;
+	    color: #555;
   }
 
   #dg {
@@ -209,8 +209,8 @@ if(!isset($_SESSION['username'])){
         <div class="col-sm-3 sidenav" id="mySidenav">
           <h4 align="center">Menu</h4>
           <ul class="nav nav-stacked">
-            <a href="insert.php" id ="id">Insert Data Karyawan</a>
-            <a href="update.php" id ="ud">Update Data Karyawan</a>
+			<a href="index.php" id ="dk">Data Karyawan</a>
+			<a href="insert.php" id ="id">Insert Data Karyawan</a>
             <a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
             <a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
             <a href="../logout.php" id ="lo">Logout</a>
@@ -232,119 +232,102 @@ if(!isset($_SESSION['username'])){
     </div>
     
     <div class="col-lg-12">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-user"></i> Update Data Karyawan </h3>
-              </div>
-              <div class="panel-body">
-                 <div class="table-responsive">
-                  
-    <form action="upd.php" method="post">
-      <table class="table table-condensed">
-        
-        <?php
-          $listnik=mysql_query("select nik from karyawan");
-        ?>
-        <tr>
-          <td><label for="nik">Nomor Induk Karyawan</label></td>
-          <!--<td><input name="nik" type="text" class="form-control" id="nik" placeholder="Nomor Induk Karyawan"></td>!-->
-          <td> 
-              <select class="form-control" name="nik" type="text" class="form-control" id="nik">
-                <option value="" disabled selected hidden>Pilih NIK Karyawan</option>
-                <?php
-                  while($data=mysql_fetch_array($listnik))
-                  {
-                ?>
-                <option><?php echo $data['nik']; ?></option>
-                <?php   
-                }
-                ?>
-              </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="nama_kar">Nama Karyawan</label></td>
-          <td><input name="nama_kar" type="text" class="form-control" id="nama_kar" placeholder="Nama Karyawan"></td>
-        </tr>
-        <tr>
-          <td><label for="alamat_kar">Alamat Karyawan</label></td>
-          <td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" placeholder="Alamat Karyawan" required/></td>
-        </tr>
-        <tr>
-          <td><label for="no_rek">Nomor Rekening</label></td>
-          <td><input name="no_rek" type="text" pattern="[0-9]{10}" title="Masukan 10 digit No.Rekening anda" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
-        </tr>
-        <tr>
-          <td><label for="golongan">Golongan</label></td>
-			<td> 
-				<select class="form-control" name="gol_kar" type="text" class="form-control" id="gol_kar">
-					<option value="" disabled selected hidden>Pilih Golongan</option>
-					<?php
-					$table_name = "karyawan";
-					$column_name = "gol_kar";
-					$result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
-					$row = mysql_fetch_array($result);
-					$enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
-					foreach($enumList as $value)
-						echo "<option value=\"$value\">$value</option>";
-					?>
-				</select>
-			</td>
-        </tr>
-        <tr>
-			<td><label for="gaji_kar">Gaji Karyawan</label></td>
-			<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
-		</tr>
-        <tr>
-          <td><label for="jabatan">Jabatan</label></td>
-          <td> 
-              <select class="form-control" name="jabatan" type="text" class="form-control" id="jabatan">
-                <option value="" disabled selected hidden>Pilih Jabatan</option>
-                <?php
-                  $table_name = "karyawan";
-                  $column_name = "jabatan";
-                  $result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
-                  $row = mysql_fetch_array($result);
-                  $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
-                  foreach($enumList as $value)
-                  echo "<option value=\"$value\">$value</option>";
-                ?>
-              </select>
-          </td>
-        </tr>    
-        <tr>
-          <td><label for="status">Status</label></td>
-          <td> 
-              <select class="form-control" name="status" type="text" class="form-control" id="status">
-                <option value="" disabled selected hidden>Pilih Status</option>
-                <?php
-                  $table_name = "karyawan";
-                  $column_name = "status";
-                  $result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
-                  $row = mysql_fetch_array($result);
-                  $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
-                  foreach($enumList as $value)
-                  echo "<option value=\"$value\">$value</option>";
-                ?>
-              </select>
-          </td>
-         </tr>      
-        <tr>
-          <td><input type="submit" value="Update"  class="btn btn-sm btn-default" style="margin-right:10px;"/><a href="index.php" class="btn btn-sm btn-default">Kembali</a></td>
-        </tr>
-      </table>
-    </form>
-              </div>
-              </div> 
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title"><i class="fa fa-user"></i> Update Data Karyawan </h3>
             </div>
-          </div>
-        </div><!-- /.row --> 
-      </div><!-- /#page-wrapper -->
+            <div class="panel-body">
+				<div class="table-responsive">
+					<?php
+					$query = mysql_query("SELECT * FROM karyawan WHERE nik='$_GET[kd]'");
+					$data  = mysql_fetch_array($query);
+					?>
+					<form action="upd.php" method="post">
+						<table class="table table-condensed">
+							<tr>
+								<td><label for="nik">NIK Karyawan</label></td>
+								<td><input name="nik" type="text" class="form-control" id="nik" value="<?php echo $data['nik'];?>" readonly="readonly" /></td>
+							</tr>
+							<tr>
+								<td><label for="nama_kar">Nama Karyawan</label></td>
+								<td><input name="nama_kar" type="text" class="form-control" id="nama_kar" value="<?php echo $data['nama_kar'];?>" readonly="readonly"/></td>
+							</tr>
+							<tr>
+								<td><label for="alamat_kar">Alamat Karyawan</label></td>
+								<td><input name="alamat_kar" type="text" class="form-control" id="alamat_kar" value="<?php echo $data['alamat_kar'];?>" required/></td>
+							</tr>
+							<tr>
+								<td><label for="no_rek">Nomor Rekening</label></td>
+								<td><input name="no_rek" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" id="no_rek" value="<?php echo $data['no_rek'];?>" required/></td>
+							</tr>
+							<tr>
+								<td><label for="golongan">Golongan</label></td>
+								<td> 
+									<select class="form-control" name="gol_kar" type="text" class="form-control" id="gol_kar">
+										<option value="" disabled selected hidden>Pilih Golongan</option>
+										<?php
+										$table_name = "karyawan";
+										$column_name = "gol_kar";
+										$result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
+										$row = mysql_fetch_array($result);
+										$enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+										foreach($enumList as $value)
+											echo "<option value=\"$value\">$value</option>";
+										?>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="gaji_kar">Gaji Karyawan</label></td>
+								<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" id="gaji_kar" value="<?php echo $data['gaji_kar'];?>" required/></td>
+							</tr>
+							<tr>
+							  <td><label for="jabatan">Jabatan</label></td>
+							  <td> 
+								  <select class="form-control" name="jabatan" type="text" class="form-control" id="jabatan">
+									<option value="" disabled selected hidden>Pilih Jabatan</option>
+									<?php
+									  $table_name = "karyawan";
+									  $column_name = "jabatan";
+									  $result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
+									  $row = mysql_fetch_array($result);
+									  $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+									  foreach($enumList as $value)
+									  echo "<option value=\"$value\">$value</option>";
+									?>
+								  </select>
+							  </td>
+							</tr>
+							<tr>
+							  <td><label for="status">Status</label></td>
+							  <td> 
+								  <select class="form-control" name="status" type="text" class="form-control" id="status">
+									<option value="" disabled selected hidden>Pilih Status</option>
+									<?php
+									  $table_name = "karyawan";
+									  $column_name = "status";
+									  $result = mysql_query("SELECT COLUMN_TYPE FROM INFORMATION_SCHEMA.COLUMNS WHERE TABLE_NAME = '$table_name' AND COLUMN_NAME = '$column_name'");
+									  $row = mysql_fetch_array($result);
+									  $enumList = explode(",", str_replace("'", "", substr($row['COLUMN_TYPE'], 5, (strlen($row['COLUMN_TYPE'])-6))));
+									  foreach($enumList as $value)
+									  echo "<option value=\"$value\">$value</option>";
+									?>
+								  </select>
+							  </td>
+							</tr>
+							<tr>
+							  <td><input type="submit" value="Update"  class="btn btn-sm btn-default" style="margin-right:10px;"/><a href="index.php" class="btn btn-sm btn-default">Kembali</a></td>
+							</tr>
+					</table>
+				</form>
+				</div>
+            </div> 
+        </div>
+    </div>
+    </div><!-- /.row --> 
+    </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
-      
-      </div>
-    </div>
     </div>
 
     <footer class="container-fluid">

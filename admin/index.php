@@ -145,13 +145,13 @@ if(!isset($_SESSION['username'])){
 	    color:white;
 	}
 
-	#id {
+	#dk {
 	    top: 55px;
 	    background-color: #9A9796;
 	    color: #9A9796;
 	}
 
-	#ud {
+	#id {
 	    top: 135px;
 	    background-color: #555;
 	    color: #555;
@@ -209,8 +209,8 @@ if(!isset($_SESSION['username'])){
 				<div class="col-sm-3 sidenav" id="mySidenav">
 					<h4 align="center">Menu</h4>
 					<ul class="nav nav-stacked">
+						<a href="index.php" id ="dk">Data Karyawan</a>
 						<a href="insert.php" id ="id">Insert Data Karyawan</a>
-						<a href="update.php" id ="ud">Update Data Karyawan</a>
 						<a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
 						<a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
 						<a href="../logout.php" id ="lo">Logout</a>
@@ -229,6 +229,10 @@ if(!isset($_SESSION['username'])){
 							</tr>
 							</table>
 							<br />
+							<div class="alert alert-warning alert-dismissable">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								Untuk Mengedit Data Karyawan, Silahkan Klik NIK Karyawan di bawah.
+							</div>
 							<div class="alert alert-warning alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 								Untuk Melakukan Transfer Gaji Karyawan, Silahkan Klik Nama Karyawan di bawah.
@@ -265,7 +269,7 @@ if(!isset($_SESSION['username'])){
 												}
 										?>
 										<tr>
-											<td><?php echo $data['nik']; ?></td>
+											<td><a href="update.php?hal=update&kd=<?php echo $data['nik'];?>"><i class="fa fa-user"></i> <?php echo $data['nik']; ?></a></td>
 											<td><?php echo $link; ?></td>
 											<td><?php echo $data['alamat_kar']; ?></td>
 											<td><?php echo $data['no_rek']; ?></td>

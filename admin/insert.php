@@ -143,16 +143,16 @@ if(!isset($_SESSION['username'])){
       color:white;
   }
 
-  #id {
-      top: 55px;
-      background-color: #9A9796;
-      color: #9A9796;
+  #dk {
+	    top: 55px;
+	    background-color: #9A9796;
+	    color: #9A9796;
   }
 
-  #ud {
-      top: 135px;
-      background-color: #555;
-      color: #555;
+  #id {
+	    top: 135px;
+	    background-color: #555;
+	    color: #555;
   }
 
   #dg {
@@ -208,8 +208,8 @@ if(!isset($_SESSION['username'])){
         <div class="col-sm-3 sidenav" id="mySidenav">
           <h4 align="center">Menu</h4>
           <ul class="nav nav-stacked">
-            <a href="insert.php" id ="id">Insert Data Karyawan</a>
-            <a href="update.php" id ="ud">Update Data Karyawan</a>
+			<a href="index.php" id ="dk">Data Karyawan</a>
+			<a href="insert.php" id ="id">Insert Data Karyawan</a>
             <a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
             <a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
             <a href="../logout.php" id ="lo">Logout</a>
