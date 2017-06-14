@@ -256,7 +256,7 @@ if(!isset($_SESSION['username'])){
 												</tr>
 												<tr>
 													<td><label for="no_rek">Nomor Rekening</label></td>
-													<td><input name="no_rek" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
+													<td><input name="no_rek" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' title="Masukan No.Rekening" class="form-control" id="no_rek" placeholder="Nomor Rekening" required/></td>
 												</tr>
 												<tr>
 													<td><label for="golongan">Golongan</label></td>
