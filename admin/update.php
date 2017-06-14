@@ -136,7 +136,8 @@ if(!isset($_SESSION['username'])){
     text-decoration: none;
     font-size: 16px;
     border-radius: 0 5px 5px 0;
-
+    color:white;
+    text-align: right;
   }
 
   #mySidenav a:hover {
@@ -145,33 +146,28 @@ if(!isset($_SESSION['username'])){
   }
 
   #dk {
-	    top: 55px;
-	    background-color: #9A9796;
-	    color: #9A9796;
+      top: 55px;
+      background-color: #9A9796;
   }
 
   #id {
-	    top: 135px;
-	    background-color: #555;
-	    color: #555;
+      top: 135px;
+      background-color: #555;
   }
 
   #dg {
       top: 215px;
       background-color: #9A9796;
-      color: #9A9796;
   }
 
   #csp {
       top: 295px;
       background-color: #555;
-      color: #555;
   }
 
   #lo {
       top: 375px;
       background-color: #9A9796;
-      color: #9A9796;
   }
   </style>
   <body>

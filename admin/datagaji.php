@@ -125,7 +125,7 @@ if(!isset($_SESSION['username'])){
 	.navbar-brand img:hover{
 			 -webkit-filter: contrast(200%) brightness(150%);
 		}
-		 #mySidenav a {
+		#mySidenav a {
     position: absolute;
     left: -80px;
     transition: 0.3s;
@@ -134,43 +134,39 @@ if(!isset($_SESSION['username'])){
     text-decoration: none;
     font-size: 16px;
     border-radius: 0 5px 5px 0;
+    color:white;
+    text-align: right;
+	}
 
-  }
+	#mySidenav a:hover {
+	    left: 0;
+	    color:white;
+	}
 
-  #mySidenav a:hover {
-      left: 0;
-      color:white;
-  }
+	#dk {
+	    top: 55px;
+	    background-color: #9A9796;
+	}
 
-  #id {
-      top: 55px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+	#id {
+	    top: 135px;
+	    background-color: #555;
+	}
 
-  #ud {
-      top: 135px;
-      background-color: #555;
-      color: #555;
-  }
+	#dg {
+	    top: 215px;
+	    background-color: #9A9796;
+	}
 
-  #dg {
-      top: 215px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+	#csp {
+	    top: 295px;
+	    background-color: #555;
+	}
 
-  #csp {
-      top: 295px;
-      background-color: #555;
-      color: #555;
-  }
-
-  #lo {
-      top: 375px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+	#lo {
+	    top: 375px;
+	    background-color: #9A9796;
+	}
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -207,8 +203,8 @@ if(!isset($_SESSION['username'])){
         <div class="col-sm-3 sidenav" id="mySidenav">
           <h4 align="center">Menu</h4>
           <ul class="nav nav-stacked">
+          	<a href="index.php" id ="dk">Data Karyawan</a>
             <a href="insert.php" id ="id">Insert Data Karyawan</a>
-            <a href="update.php" id ="ud">Update Data Karyawan</a>
             <a href="datagaji.php" id ="dg">Data Gaji Karyawan</a>
             <a href="tampilgaji.php" id ="csp">Cetak Slip Gaji Karyawan</a>
             <a href="../logout.php" id ="lo">Logout</a>

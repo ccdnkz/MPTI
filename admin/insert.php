@@ -138,40 +138,48 @@ if(!isset($_SESSION['username'])){
 
   }
 
-  #mySidenav a:hover {
-      left: 0;
-      color:white;
-  }
+  #mySidenav a {
+    position: absolute;
+    left: -80px;
+    transition: 0.3s;
+    padding: 15px;
+    width: 340px;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 0 5px 5px 0;
+    color:white;
+    text-align: right;
+	}
 
-  #dk {
+	#mySidenav a:hover {
+	    left: 0;
+	    color:white;
+	}
+
+	#dk {
 	    top: 55px;
 	    background-color: #9A9796;
-	    color: #9A9796;
-  }
+	}
 
-  #id {
+	#id {
 	    top: 135px;
 	    background-color: #555;
-	    color: #555;
-  }
+	}
 
-  #dg {
-      top: 215px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+	#dg {
+	    top: 215px;
+	    background-color: #9A9796;
+	}
 
-  #csp {
-      top: 295px;
-      background-color: #555;
-      color: #555;
-  }
+	#csp {
+	    top: 295px;
+	    background-color: #555;
+	}
 
-  #lo {
-      top: 375px;
-      background-color: #9A9796;
-      color: #9A9796;
-  }
+	#lo {
+	    top: 375px;
+	    background-color: #9A9796;
+	}
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
