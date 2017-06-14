@@ -16,8 +16,8 @@ if(!isset($_SESSION['username'])){
     <title>Bootstrap 101 Template</title>
 
     <!-- Bootstrap -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<!--<link href="../bootstrap/css/w3s.css" rel="stylesheet">!-->
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -69,6 +69,46 @@ if(!isset($_SESSION['username'])){
 			settings ='height='+h+',width='+w+',top='+TopPosition+',left='+LeftPosition+',scrollbars='+scroll+',resizable'
 			popupWindow = window.open(url,winName,settings)
 		}
+		//Function filter
+			(function(document) {
+		'use strict';
+
+		var LightTableFilter = (function(Arr) {
+
+			var _input;
+
+			function _onInputEvent(e) {
+				_input = e.target;
+				var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+				Arr.forEach.call(tables, function(table) {
+					Arr.forEach.call(table.tBodies, function(tbody) {
+						Arr.forEach.call(tbody.rows, _filter);
+					});
+				});
+			}
+
+			function _filter(row) {
+				var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+				row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+			}
+
+			return {
+				init: function() {
+					var inputs = document.getElementsByClassName('light-table-filter');
+					Arr.forEach.call(inputs, function(input) {
+						input.oninput = _onInputEvent;
+					});
+				}
+			};
+		})(Array.prototype);
+
+		document.addEventListener('readystatechange', function() {
+			if (document.readyState === 'complete') {
+				LightTableFilter.init();
+			}
+		});
+
+	})(document);	
 	</script>
 	</head>
 	<style>
@@ -170,6 +210,24 @@ if(!isset($_SESSION['username'])){
 	    top: 375px;
 	    background-color: #9A9796;
 	}
+	input[type=text] {
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 5px 20px 5px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    margin-bottom: 10px;
+}
+
+input[type=text]:focus {
+    width: 100%;
+}
 	</style>
 	<body>
 		<nav class="navbar navbar-inverse navbar-static-top">
@@ -227,11 +285,8 @@ if(!isset($_SESSION['username'])){
 							<br />
 							<div class="alert alert-warning alert-dismissable">
 								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								Untuk Mengedit Data Karyawan, Silahkan Klik NIK Karyawan di bawah.
-							</div>
-							<div class="alert alert-warning alert-dismissable">
-								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-								Untuk Melakukan Transfer Gaji Karyawan, Silahkan Klik Nama Karyawan di bawah.
+								<h5>Untuk Mengedit Data Karyawan, Silahkan Klik <strong>NIK Karyawan</strong> di bawah.</h5>
+								<h5>Untuk Melakukan Transfer Gaji Karyawan, Silahkan Klik <strong>Nama Karyawan</strong> di bawah.</h5>
 							</div>
 						</div>
 		
@@ -241,12 +296,15 @@ if(!isset($_SESSION['username'])){
 									<h3 class="panel-title"><i class="fa fa-user"></i> Data Karyawan </h3> 
 								</div>
 								<div class="panel-body">
-									<div class="table-responsive">
+									<div class="col-sm-12">
+										<input type="text" name="search" placeholder="Search.." class="light-table-filter" data-table="order-table" data-type="search">
+									</div>
+									<div class="table-responsive col-md-12">
 										<?php
 										$tampil=mysql_query("select * from karyawan order by id_kar asc");
 										?>
-										<table class="table table-bordered table-hover table-striped tablesorter">
-										<tr>
+										<table class="table table-bordered table-hover table-striped tablesorter order-table">
+										<thead>
 											<th>NIK<i class="fa fa-sort"></i></th>
 											<th>Nama<i class="fa fa-sort"></i></th>
 											<th>Alamat <i class="fa fa-sort"></i></th>
@@ -255,17 +313,19 @@ if(!isset($_SESSION['username'])){
 											<th>Golongan <i class="fa fa-sort"></i></th>
 											<th>Jabatan <i class="fa fa-sort"></i></th>
 											<th>Status <i class="fa fa-sort"></i></th>
-										</tr>
+										</thead>
 										<?php
 											while($data=mysql_fetch_array($tampil)) {
 												if($data['status'] == "Aktif"){
 													$link = "<a href='gaji.php?hal=transfer&kd=" . $data['id_kar'] . "<i class='fa fa-user'></i>" . $data['nama_kar'] . "</a>";
+													$link2 = "<a href='update.php?hal=update&kd=" . $data['nik'] . "<i class='fa fa-user'></i>" . $data['nik'] . "</a>";
 												} else {
 													$link = $data['nama_kar'];
+													$link2 = $data['nik'];
 												}
 										?>
 										<tr>
-											<td><a href="update.php?hal=update&kd=<?php echo $data['nik'];?>"><i class="fa fa-user"></i> <?php echo $data['nik']; ?></a></td>
+											<td><?php echo $link2; ?></a></td>
 											<td><?php echo $link; ?></td>
 											<td><?php echo $data['alamat_kar']; ?></td>
 											<td><?php echo $data['no_rek']; ?></td>
@@ -290,8 +350,8 @@ if(!isset($_SESSION['username'])){
 			<p>Copyright © 2017 - Payroll System</p>
 		</footer>
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	    <script src="../bootstrap/js/jquery.min.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="../bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
