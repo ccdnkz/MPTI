@@ -85,7 +85,7 @@
   <body>
     <div class="hero-image">
 	  <div class="hero-text">
-	    <h1 style="font-size:50px">Payroll System</h1>
+	    <img alt="Brand" src="rsc/logo.png" height="90" width="230" />
 	  </div>
 	</div>
 	<div class="container-fluid" style="background:#65605F;">

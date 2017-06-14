@@ -36,9 +36,13 @@ if(!isset($_SESSION['username'])){
     
     /* Set black background color, white text and some padding */
     footer {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 1rem;
       background-color: #555;
       color: white;
-      padding: 15px;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -62,13 +66,12 @@ if(!isset($_SESSION['username'])){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Brand</a>
+      <a class="navbar-brand" href="index.php"><img alt="Brand" src="rsc/logo.png" width="90" /></a></a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Article</a></li>
 		<li><a href="#">Categories</a></li>
 		<li><a href="#">Tags</a></li>
@@ -82,7 +85,6 @@ if(!isset($_SESSION['username'])){
 		}
 		else{
 		?>
-		<li><a href="#">Profile</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -104,7 +106,7 @@ if(!isset($_SESSION['username'])){
 	  ?>
       <form class="navbar-form navbar-left">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search">
+          <input type="text" class="form-control" size="35" placeholder="Search">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -112,18 +114,16 @@ if(!isset($_SESSION['username'])){
 		}
 	  ?>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><?php echo $_SESSION['username'] ?></a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="logout.php">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
+						<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <?php echo $_SESSION['username'] ?> <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">Profile</a></li>
+							<li><a href="#">Settings</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="logout.php">Logout</a></li>
+						</ul>
+						</li>
+					</ul>
 	  </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -167,7 +167,7 @@ if(!isset($_SESSION['username'])){
 	  </div>
 
     <footer class="container-fluid">
-      <p>Footer Text</p>
+      <p>Copyright © 2017 - Payroll System</p>
     </footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
