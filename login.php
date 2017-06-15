@@ -100,7 +100,7 @@
 					include "config.php";
 						if(isset($_POST['username']) && isset($_POST['password'])){
 							$username = $_POST['username'];
-							$password = md5($_POST['password']);
+							$password = $_POST['password'];
 							$stmt = $db->prepare("SELECT * FROM login WHERE username=? AND password=? ");
 							$stmt->bindParam(1, $username);
 							$stmt->bindParam(2, $password);
@@ -108,24 +108,13 @@
 							$row = $stmt->fetch();
 							$user = $row['username'];
 							$pass = $row['password'];
-							$id = $row['id'];
-							$type = $row['type'];
 							if($username==$user && $pass==$password){
 								session_start();
 								$_SESSION['username'] = $user;
 								$_SESSION['password'] = $pass;
-								$_SESSION['id'] = $id;
-								$_SESSION['type'] = $type;
-								if($type=='Member'){
-								?>
-								<script>window.location.href='index.php'</script>
-								<?php
-								}
-								else{
 								?>
 								<script>window.location.href='admin/index.php'</script>
 								<?php
-								}
 							}
 							else{
 								?>

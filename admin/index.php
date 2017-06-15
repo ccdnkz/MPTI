@@ -241,20 +241,6 @@ input[type=text]:focus {
 				</button>
 				<a class="navbar-brand" href="index.php"><img alt="Brand" src="../rsc/logo.png" width="90" /></a></a>
 				</div>
-
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <?php echo $_SESSION['username'] ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Settings</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="../logout.php">Logout</a></li>
-						</ul>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
 
@@ -318,14 +304,12 @@ input[type=text]:focus {
 											while($data=mysql_fetch_array($tampil)) {
 												if($data['status'] == "Aktif"){
 													$link = "<a href='gaji.php?hal=transfer&kd=" . $data['id_kar'] . "<i class='fa fa-user'></i>" . $data['nama_kar'] . "</a>";
-													$link2 = "<a href='update.php?hal=update&kd=" . $data['nik'] . "<i class='fa fa-user'></i>" . $data['nik'] . "</a>";
 												} else {
 													$link = $data['nama_kar'];
-													$link2 = $data['nik'];
 												}
 										?>
 										<tr>
-											<td><?php echo $link2; ?></a></td>
+											<td><a href="update.php?hal=update&kd=<?php echo $data['nik'];?>"><i class="fa fa-user"></i> <?php echo $data['nik']; ?></a></td>
 											<td><?php echo $link; ?></td>
 											<td><?php echo $data['alamat_kar']; ?></td>
 											<td><?php echo $data['no_rek']; ?></td>

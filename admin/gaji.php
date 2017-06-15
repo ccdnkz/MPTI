@@ -278,7 +278,7 @@ if(!isset($_SESSION['username'])){
 													<td><input name="jam_lembur" type="text" class="form-control" id="jam_lembur" autofocus="on" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" required/></td>
 												</tr>
 												<tr>
-													<td><label for="ketidakhadiran">Jumlah Ketidakhadiran</label></td>
+													<td><label for="ketidakhadiran">Jumlah Ketidakhadiran (Hari)</label></td>
 													<td><input name="ketidakhadiran" type="text" class="form-control" id="ketidakhadiran" autofocus="on" onkeyup="hitung_gaji()" onkeydown="hitung_gaji()" onchange="hitung_gaji()" required/></td>
 												</tr>
 												<tr>
@@ -296,7 +296,7 @@ if(!isset($_SESSION['username'])){
 												<tr>
 													<td><label for="bulan_transfer">Bulan Transfer</label></td>
 													<td><select name="bulan_transfer" name="bulan_transfer" id="bulan_transfer" class="form-control" required>
-													<option value="" disabled selected hidden>Pilih Status</option>
+													<option value="" disabled selected hidden>Pilih Bulan</option>
 													<option value="Januari">Januari</option>
 													<option value="Februari">Februari</option>
 													<option value="Maret">Maret</option>

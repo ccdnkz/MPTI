@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2017 at 02:44 PM
+-- Generation Time: Jun 15, 2017 at 10:46 PM
 -- Server version: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
@@ -45,7 +45,7 @@ CREATE TABLE `gaji` (
 --
 
 CREATE TABLE `karyawan` (
-  `id_kar` int(11) NOT NULL,
+  `id_kar` int(11) UNSIGNED ZEROFILL NOT NULL,
   `nik` varchar(10) NOT NULL,
   `nama_kar` varchar(50) NOT NULL,
   `alamat_kar` varchar(100) NOT NULL,
@@ -66,17 +66,15 @@ CREATE TABLE `karyawan` (
 CREATE TABLE `login` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `type` enum('Member','Administrator') NOT NULL DEFAULT 'Member'
+  `password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `username`, `password`, `type`) VALUES
-(1, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator'),
-(2, 'user', 'ee11cbb19052e40b07aac0ca060c23ee', 'Member');
+INSERT INTO `login` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'admin');
 
 --
 -- Indexes for dumped tables
@@ -98,8 +96,7 @@ ALTER TABLE `karyawan`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -114,12 +111,12 @@ ALTER TABLE `gaji`
 -- AUTO_INCREMENT for table `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_kar` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_kar` int(11) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `login`
 --
 ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
