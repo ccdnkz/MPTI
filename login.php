@@ -5,10 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Payroll</title>
 
     <!-- Bootstrap -->
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="icon" href="rsc/icon.png">
+	
     <style>
     	body, html {
 		    height: 100%;
@@ -85,7 +87,7 @@
   <body>
     <div class="hero-image">
 	  <div class="hero-text">
-	    <img alt="Brand" src="rsc/logo.png" height="90" width="230" />
+	    <img alt="Brand" src="rsc/logo.png" height="100" width="300" />
 	  </div>
 	</div>
 	<div class="container-fluid" style="background:#65605F;">
