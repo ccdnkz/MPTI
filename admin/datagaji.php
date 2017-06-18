@@ -99,6 +99,11 @@ if(!isset($_SESSION['username'])){
       margin: 0;
       padding-bottom: 6rem;
       min-height: 100%;
+      background: url('../rsc/bg.jpg') no-repeat center center fixed; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
     }
 
     /**
@@ -217,7 +222,7 @@ if(!isset($_SESSION['username'])){
 					<div class="row">
 						<div class="col-lg-12">
 							<table width="900">
-								<tr>
+								<tr style="color:white;">
 									<td width="250"><div class="Tanggal"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
 									<td align="left" width="30"> - </td>
 									<td align="left" width="620"> <h4><div id="time"></div></h4></td>

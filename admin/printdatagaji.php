@@ -90,7 +90,7 @@ if(!isset($_SESSION['username'])){
 			<div class="row">
 				<div class="col-lg-12">
 					<table width="900">
-						<tr>
+						<tr style="color:white;">
 						<td width="250"><div class="Tanggal no-print"><h4><script language="JavaScript">document.write(tanggallengkap);</script></div></h4></td> 
 						<td align="left" width="30"> - </td>
 						<td align="left" width="620"> <h4><div id="time"></div></h4></td>
