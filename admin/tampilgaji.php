@@ -307,7 +307,7 @@ if(!isset($_SESSION['username'])){
 											<td><?php echo $data['waktu_transfer']; ?></td>
 											<td>
 												<div class="text-right">
-													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>&amp;wkt=<?php echo $data['waktu_transfer'];?>">Print
+													<a class="btn btn-sm btn-danger" href="slipgaji.php?hal=slipgaji&kd=<?php echo $data['nik'];?>&amp;wkt=<?php echo $data['waktu_transfer'];?>" target="_blank">Print
 													</a>
 													<!--<?php
 													$kirim=mysql_query("SELECT * FROM karyawan, gaji");
