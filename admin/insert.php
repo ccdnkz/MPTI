@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 include "../config.php";
 session_start();
 if(!isset($_SESSION['username'])){
@@ -197,23 +197,8 @@ if(!isset($_SESSION['username'])){
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php"><img alt="Brand" src="../rsc/logo.png" width="90" /></a>
+				<a class="navbar-brand" href="index.php"><img alt="Brand" src="../rsc/logo.png" width="90" /></a></a>
 				</div>
-
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome, <?php echo $_SESSION['username'] ?> <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<li><a href="#">Settings</a></li>
-							<li role="separator" class="divider"></li>
-							<li><a href="../logout.php">Logout</a></li>
-						</ul>
-						</li>
-					</ul>
-				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
 		
@@ -291,7 +276,7 @@ if(!isset($_SESSION['username'])){
 												</tr>
 												<tr>
 													<td><label for="gaji_kar">Gaji Karyawan</label></td>
-													<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" title="Masukan Nominal Gaji" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
+													<td><input name="gaji_kar" type="text" pattern="([0-9]|&#8734;)+" class="form-control" id="gaji_kar" placeholder="Gaji Karyawan" required/></td>
 												</tr>
 												<tr>
 													<td><input type="submit" value="Insert" class="btn btn-sm btn-default" name="Tambah"/>&nbsp;<a href="index.php" class="btn btn-sm btn-default">Kembali</a></td>

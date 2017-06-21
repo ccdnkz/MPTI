@@ -3,8 +3,8 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2017 at 10:46 PM
--- Server version: 10.0.17-MariaDB
+-- Generation Time: 21 Jun 2017 pada 19.32
+-- Versi Server: 10.0.17-MariaDB
 -- PHP Version: 5.6.14
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gaji`
+-- Struktur dari tabel `gaji`
 --
 
 CREATE TABLE `gaji` (
@@ -41,7 +41,7 @@ CREATE TABLE `gaji` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `karyawan`
+-- Struktur dari tabel `karyawan`
 --
 
 CREATE TABLE `karyawan` (
@@ -49,8 +49,8 @@ CREATE TABLE `karyawan` (
   `nik` varchar(10) NOT NULL,
   `nama_kar` varchar(50) NOT NULL,
   `alamat_kar` varchar(100) NOT NULL,
-  `no_ktp` int(16) NOT NULL,
-  `no_rek` int(30) NOT NULL,
+  `no_ktp` bigint(16) NOT NULL,
+  `no_rek` bigint(30) NOT NULL,
   `gol_kar` enum('A','B','C') NOT NULL,
   `jabatan` enum('Staff','Manajer') NOT NULL DEFAULT 'Staff',
   `gaji_kar` decimal(10,0) NOT NULL,
@@ -60,7 +60,7 @@ CREATE TABLE `karyawan` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Struktur dari tabel `login`
 --
 
 CREATE TABLE `login` (
@@ -70,7 +70,7 @@ CREATE TABLE `login` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `login`
+-- Dumping data untuk tabel `login`
 --
 
 INSERT INTO `login` (`id`, `username`, `password`) VALUES
